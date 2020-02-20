@@ -1,8 +1,10 @@
 import React from 'react';
+import Tabs from './shared/Tabs'
+import '../styles/app.css'
 
 function App() {
   return (
-    <h1>hey</h1>
+    <Tabs></Tabs>
   );
 }
 
