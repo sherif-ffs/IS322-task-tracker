@@ -1,13 +1,19 @@
 import React from 'react';
+
 import '../../styles/TableView/tableView.css'
+import Filters from './Filters'
+import Table from './Table'
 
-class TableView extends React.Component {
+const TableView = props => {
 
-  render () {
+    const {allTasks} = props;
+
     return (
-      <section className="table-container">TABLE WILL GO HERE</section>
+      <section className="table-container">
+        <Filters></Filters>
+        <Table allTasks={allTasks}></Table>
+      </section>
     )
-  }
 };
 
 export default TableView;

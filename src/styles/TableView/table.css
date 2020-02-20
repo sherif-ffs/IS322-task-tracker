@@ -1,0 +1,21 @@
+table {
+    width: 70%;
+    margin-left: 15%;
+    border-collapse: collapse;
+    margin-top: 2%;
+  }
+  th, td {
+    padding: 15px;
+    border: 1px dashed rgba(0, 0, 0, .2);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #222;
+  }
+  th {
+      font-size: 1.3rem;
+      font-weight: 900;
+  }
+  td {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: .9;
+  }

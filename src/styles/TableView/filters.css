@@ -1,0 +1,15 @@
+.filters-container {
+    width: 60%;
+    margin-left: 20%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    margin-top: 5%;
+}
+.filter {
+    display: flex;
+    flex: 1;
+    margin: 10px;
+    /* border: 1px solid blue; */
+}

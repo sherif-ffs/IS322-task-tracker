@@ -12,7 +12,7 @@ import GridView from '../GridView/GridView';
 import TableView from '../TableView/TableView';
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other  } = props;
 
   return (
     <Typography
@@ -48,10 +48,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function FullWidthTabs() {
+const FullWidthTabs = props => {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+
+  const {tasks} = props;
+  console.log('tasks: ', tasks)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -85,9 +88,11 @@ export default function FullWidthTabs() {
             <GridView></GridView>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-            <TableView></TableView>
+            <TableView allTasks={tasks}></TableView>
         </TabPanel>
       </SwipeableViews>
     </div>
   );
 }
+
+export default FullWidthTabs

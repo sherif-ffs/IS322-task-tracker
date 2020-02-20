@@ -2,10 +2,18 @@ import React from 'react';
 import Tabs from './shared/Tabs'
 import '../styles/app.css'
 
-function App() {
-  return (
-    <Tabs></Tabs>
-  );
+import initialData from '../initialData'
+
+class App extends React.Component {
+  state = initialData
+
+  render() {
+    const { tasks } = initialData;
+    
+    return (
+      <Tabs tasks={tasks}></Tabs>
+    );
+  }
 }
 
 export default App;
