@@ -27,11 +27,6 @@ class TableView extends React.Component {
   }
 
   searchTasksByTitle(searchInput) {
-    // e.preventDefault()
-    // alert('progress')
-    // console.log('searchInput: ', searchInput)
-    // searchInput = document.querySelector('.search-input').value
-    console.log('searchInput: ', searchInput)
     this.setState({searchInput})
   }
 

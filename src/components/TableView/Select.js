@@ -24,16 +24,15 @@ class FilterType extends React.Component {
             <FormControl className='filter-by-type-container filter'>
             <InputLabel id="demo-simple-select-label">Filter By Type</InputLabel>
                 <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={this.state.type}
-                className="filter-by-type"
-                // onChange={(newType) => this.setState({ type: newType })}
-                onChange={event => this.onTypeChange(event.target.value)}
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={this.state.type}
+                    className="filter-by-type"
+                    onChange={event => this.onTypeChange(event.target.value)}
                 >
-                <MenuItem value={'bug'}>Bug</MenuItem>
-                <MenuItem value={'task'}>Task</MenuItem>
-                <MenuItem value={'feature'}>Feature</MenuItem>
+                    <MenuItem value={'bug'}>Bug</MenuItem>
+                    <MenuItem value={'task'}>Task</MenuItem>
+                    <MenuItem value={'feature'}>Feature</MenuItem>
                 </Select>
           </FormControl>
         )

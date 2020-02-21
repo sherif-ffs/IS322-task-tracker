@@ -12,6 +12,7 @@ class Search extends React.Component {
             searchInput: ''
         };
       }
+
     searchTasksByTitle = this.props.onSubmit;
 
 
@@ -20,9 +21,6 @@ class Search extends React.Component {
             <MuiThemeProvider className="search-input-container">
             <SearchBar
                 className="search-input"
-                // style={{
-                // margin: '15 auto',
-                // }}
                 value={this.state.searchInput}
                 onChange={(newValue) => this.setState({ searchInput: newValue })}
                 onRequestSearch={() => this.searchTasksByTitle(this.state.searchInput)}
