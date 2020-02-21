@@ -6,16 +6,17 @@ table {
   }
   th, td {
     padding: 15px;
-    border: 1px dashed rgba(0, 0, 0, .2);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Open-Sans','Lora', Georgia, 'Times New Roman', Times, serif;
     color: #222;
   }
   th {
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       font-weight: 900;
   }
   td {
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 400;
-    opacity: .9;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    opacity: .8;
+    border: 1px dashed rgba(34, 34, 34, .2);
   }

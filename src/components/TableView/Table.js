@@ -1,10 +1,21 @@
 import React from 'react';
 
 import '../../styles/TableView/table.css'
+import TableRow from './TableRow'
 
 const Table = props => {
 
   let {allTasks} = props; 
+
+  let tableRows = allTasks.map((tableRow, i) => {
+      return <TableRow
+                title={tableRow.title}
+                status={tableRow.status}
+                type={tableRow.type}
+                key={tableRow.i}
+                id={tableRow.id}
+                />
+  })
 
     return (
         <table>
@@ -15,24 +26,10 @@ const Table = props => {
                     <th>Type</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>Eve</td>
-                    <td>Jackson</td>
-                    <td>94</td>
-                </tr>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>80</td>
-                </tr>
+            <tbody className="table-body">
+               {tableRows}
             </tbody> 
-      </table>
+        </table>
     )
 };
 

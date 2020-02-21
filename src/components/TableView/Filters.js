@@ -1,30 +1,21 @@
 import React from 'react';
 
+import Button from '@material-ui/core/Button';
+import Select from './Select'
+import SearchBar from './SearchBar'
+
 import '../../styles/TableView/filters.css'
 
 class Filters extends React.Component {
 
   render () {
+    const {onTypeChange, resetTable, searchTasksByTitle} = this.props;
+
     return (
         <section className="filters-container">
-            <button className="button filter">Reset Filters</button>
-
-             <select class="filter-by-status filter" name="orderBy">
-                <option value="DEFAULT" selected="selected">filter by status</option>                
-                <option value="all">all</option>
-                <option value="done">done</option>
-                <option value="todo">todo</option>
-                <option value="review">review</option>
-                <option value="in-progress">in progress</option>
-            </select>
-
-            <select class="filter-by-article filter" name="orderBy">
-                <option selected="selected">filter by type</option>   
-                <option value="all">all</option>
-                <option value="bug">bugs</option>
-                <option value="feature">feature</option>
-                <option value="fix">fix</option>
-            </select>
+          <Button className="button filter" onClick={resetTable} variant="contained" color="primary">Reset Table</Button>
+          <Select className="filter" onChange={onTypeChange}></Select>
+          <SearchBar className="filter" onSubmit={searchTasksByTitle}></SearchBar>
         </section>
     )
   }

@@ -1,15 +1,33 @@
 .filters-container {
-    width: 60%;
-    margin-left: 20%;
-    /* border: 1px solid red; */
+    width: 70%;
+    margin-left: 15%;
     display: flex;
     flex-direction: row;
-    height: 50px;
-    margin-top: 5%;
+    height: 60px;
+    margin-top: 4%;
 }
 .filter {
     display: flex;
     flex: 1;
     margin: 10px;
-    /* border: 1px solid blue; */
+}
+.button {
+    background-color: #01295F;
+    border: none;
+    outline: none;
+    /* padding: 10px; */
+    color: white;
+    font-family: Lato;
+    font-size: 1.1rem;
+    text-align:center;
+}
+.button:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+.search-input {
+    width: 100%;
+}
+.search-bar {
+    width: 100%;
 }
