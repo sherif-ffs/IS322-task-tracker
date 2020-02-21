@@ -12,3 +12,11 @@
         /* border: 1px solid red!important; */
     }
 }
+
+@media screen and (max-width: 1025px) and (min-width: 601px) {
+    .filter-by-type-container {
+        margin-left: 0px!important;
+        margin-top: 8vh;
+        /* border: 1px solid red!important; */
+    }
+}

@@ -15,7 +15,7 @@ table {
       font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
   }
   td {
-    font-size: .9rem;
+    font-size: 1rem;
     font-weight: 400;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     opacity: .8;
@@ -29,5 +29,13 @@ table {
     }
     th {
       font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 1025px) and (min-width: 601px) {
+    table {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 12vh;
     }
 }

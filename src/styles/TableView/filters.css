@@ -34,9 +34,15 @@
         margin-bottom: 2vh;
     }
 }
-/*
-a.1366px wide (Large Desktop)
-b.1024px wide (Small Desktop)
-c.768px wide (Tablet)
-d.411px wide (Phone)
-*/
+
+@media screen and (max-width: 1025px) and (min-width: 601px) {
+    .filters-container {
+        width: 70%;
+        margin-left: 15%;
+        flex-direction: column;
+        margin-top: 5vh;
+    }
+    .filter {
+        margin-bottom: 2vh;
+    }
+}

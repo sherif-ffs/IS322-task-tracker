@@ -71,7 +71,6 @@ class TableView extends React.Component {
 
   render() {
     let filteredItems = this.getFilteredTasks();
-
     return (
       <section className="table-container">
         <Filters

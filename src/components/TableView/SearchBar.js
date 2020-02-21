@@ -21,6 +21,7 @@ class Search extends React.Component {
             <MuiThemeProvider className="search-input-container">
             <SearchBar
                 className="search-input"
+                hintText="Search by title..."
                 value={this.state.searchInput}
                 onChange={(newValue) => this.setState({ searchInput: newValue })}
                 onRequestSearch={() => this.searchTasksByTitle(this.state.searchInput)}
