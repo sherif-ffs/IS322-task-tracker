@@ -1,25 +1,44 @@
 import React from 'react';
 
-import '../../styles/TableView/table.css'
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
-const Select = props => {
+import '../../styles/TableView/select.css'
 
-    const onTypeChange = props.onChange;
+class FilterType extends React.Component {
 
-    return (
-        <select 
-            className="filter-by-type filter" 
-            name="orderBy"
-            placeholder="test"
-            onChange={e => onTypeChange(e.target.value)}
-            >
-            <option defaultValue="defaultValue">filter by type</option>   
-            <option value="all">all</option>
-            <option value="bug">bug</option>
-            <option value="feature">feature</option>
-            <option value="task">task</option>
-        </select>
-    )
+    constructor(props) {
+        super(props);
+        this.state = { 
+            type: '',
+        };
+      }
+
+    onTypeChange = this.props.onChange;
+
+    render() {
+    console.log('onTypeChange: ', this.onTypeChange)
+        return (
+            <FormControl className='filter-by-type-container filter'>
+            <InputLabel id="demo-simple-select-label">Filter By Type</InputLabel>
+                <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={this.state.type}
+                className="filter-by-type"
+                // onChange={(newType) => this.setState({ type: newType })}
+                onChange={event => this.onTypeChange(event.target.value)}
+                >
+                <MenuItem value={'bug'}>Bug</MenuItem>
+                <MenuItem value={'task'}>Task</MenuItem>
+                <MenuItem value={'feature'}>Feature</MenuItem>
+                </Select>
+          </FormControl>
+        )
+    }
+    
 }
 
-export default Select;
+export default FilterType;

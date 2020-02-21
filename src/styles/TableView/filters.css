@@ -1,26 +1,22 @@
 .filters-container {
-    width: 70%;
-    margin-left: 15%;
+    width: 65%;
+    margin-left: 17.5%;
     display: flex;
     flex-direction: row;
     height: 60px;
     margin-top: 4%;
+    /* border: 1px solid red!important; */
 }
 .filter {
     display: flex;
     flex: 1;
-    margin: 10px;
-}
-.button {
-    background-color: #01295F;
-    border: none;
-    outline: none;
-    /* padding: 10px; */
-    color: white;
-    font-family: Lato;
-    font-size: 1.1rem;
-    text-align:center;
-}
+    height: 4vh;
+    /* margin-left: 25px!important;
+    margin-top: 10px;
+    margin-right: 25px!important; */
+    /* border: 1px solid red!important; */
+
+} */
 .button:hover {
     opacity: .8;
     cursor: pointer;

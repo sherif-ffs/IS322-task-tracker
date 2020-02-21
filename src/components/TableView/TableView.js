@@ -26,15 +26,15 @@ class TableView extends React.Component {
     document.querySelector('.search-input').value = '';
   }
 
-  searchTasksByTitle(e, searchInput) {
-    e.preventDefault()
-    searchInput = document.querySelector('.search-input').value
+  searchTasksByTitle(searchInput) {
+    // e.preventDefault()
+    // alert('progress')
+    // console.log('searchInput: ', searchInput)
+    // searchInput = document.querySelector('.search-input').value
+    console.log('searchInput: ', searchInput)
     this.setState({searchInput})
   }
 
-  onStatusChange(status) {
-    this.setState({status})
-  }
   onTypeChange(type) {
     this.setState({type})
   }
@@ -82,7 +82,6 @@ class TableView extends React.Component {
         <Filters
           resetTable={this.resetTable.bind(this)}
           searchTasksByTitle={this.searchTasksByTitle.bind(this)}
-          onStatusChange={this.onStatusChange.bind(this)}
           onTypeChange={this.onTypeChange.bind(this)}
         ></Filters>
         <Table allTasks={filteredItems}></Table>

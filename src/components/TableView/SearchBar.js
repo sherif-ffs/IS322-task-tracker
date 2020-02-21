@@ -1,17 +1,36 @@
 import React from 'react';
+import SearchBar from 'material-ui-search-bar'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-import '../../styles/TableView/table.css'
+import '../../styles/TableView/search.css'
 
-const SearchBar = props => {
+class Search extends React.Component {
 
-    const searchTasksByTitle = props.onSubmit;
+    constructor(props) {
+        super(props);
+        this.state = { 
+            searchInput: ''
+        };
+      }
+    searchTasksByTitle = this.props.onSubmit;
 
-    return (
-        <form className="search-bar filter" onSubmit={e => searchTasksByTitle(e, e.target.value)}>
-            <input type="text" placeholder="Search tasks.." name="search" className="search-input"/>
-            <button type="submit"><i className="fa fa-search"></i></button>
-        </form>
-    )
+
+    render() {
+        return (
+            <MuiThemeProvider className="search-input-container">
+            <SearchBar
+                className="search-input"
+                // style={{
+                // margin: '15 auto',
+                // }}
+                value={this.state.searchInput}
+                onChange={(newValue) => this.setState({ searchInput: newValue })}
+                onRequestSearch={() => this.searchTasksByTitle(this.state.searchInput)}
+                ></SearchBar>
+             </MuiThemeProvider>
+        )
+    }
+    
 }
 
-export default SearchBar;
+export default Search;

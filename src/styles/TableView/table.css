@@ -12,6 +12,7 @@ table {
   th {
       font-size: 1.6rem;
       font-weight: 900;
+      font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
   }
   td {
     font-size: .9rem;
