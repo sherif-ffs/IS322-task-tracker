@@ -3,3 +3,12 @@
     flex: .4!important;
     margin-left: 50px!important;
 }
+
+
+@media screen and (max-width: 600px) {
+    .filter-by-type-container {
+        margin-left: 0px!important;
+        margin-top: 8vh;
+        /* border: 1px solid red!important; */
+    }
+}

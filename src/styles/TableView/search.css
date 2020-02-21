@@ -2,3 +2,10 @@
     display: flex;
     flex: .2!important;
 }
+
+
+@media screen and (max-width: 600px) {
+    .search-input {
+        /* padding-top: 20px; */
+    }
+}

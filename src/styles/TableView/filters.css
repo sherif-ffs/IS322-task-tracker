@@ -21,3 +21,22 @@
 .search-bar {
     width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+    .filters-container {
+        width: 90%;
+        margin-left: 7.5%;
+        flex-direction: column;
+        margin-bottom: 20vh;
+        margin-top: 5vh;
+    }
+    .filter {
+        margin-bottom: 2vh;
+    }
+}
+/*
+a.1366px wide (Large Desktop)
+b.1024px wide (Small Desktop)
+c.768px wide (Tablet)
+d.411px wide (Phone)
+*/

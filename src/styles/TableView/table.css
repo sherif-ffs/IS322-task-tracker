@@ -21,3 +21,13 @@ table {
     opacity: .8;
     border: 1px dashed rgba(34, 34, 34, .2);
   }
+
+  @media screen and (max-width: 600px) {
+    table {
+        width: 95%!important;
+        margin-left: 0px!important;
+    }
+    th {
+      font-size: 1.4rem;
+    }
+}
