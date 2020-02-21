@@ -35,7 +35,9 @@ class TableView extends React.Component {
   }
 
   getFilteredTasks() {
-    let tasks = this.props.allTasks;
+    let tasks = Object.keys(this.props.allTasks).map(key => {
+      return this.props.allTasks[key];
+    })
 
     let {status, type, searchInput } = this.state;
 
@@ -44,7 +46,9 @@ class TableView extends React.Component {
         tasks = tasks.filter(task => task.title.toLowerCase().includes(searchInput.trim('').toLowerCase()));
         return tasks
       } else {
-        tasks = this.props.allTasks
+        tasks = Object.keys(this.props.allTasks).map(key => {
+          return this.props.allTasks[key];
+        })
       }
     }
 
@@ -53,7 +57,9 @@ class TableView extends React.Component {
         tasks = tasks.filter(task => task.status === status)
         return tasks
       } else {
-        tasks = this.props.allTasks
+        tasks = Object.keys(this.props.allTasks).map(key => {
+          return this.props.allTasks[key];
+        })
       }
     }
 
@@ -62,7 +68,9 @@ class TableView extends React.Component {
         tasks = tasks.filter(task => task.type === type)
         return tasks
       } else {
-        tasks = this.props.allTasks
+        tasks = Object.keys(this.props.allTasks).map(key => {
+          return this.props.allTasks[key];
+        })
       }
     }
 
