@@ -1,16 +1,16 @@
 const initialData = {
-    tasks: [
-        {id: '1', title: 'Create List View', status: 'done', type: 'bug'},
-        {id: '2', title: 'Create Add Form', status: 'in-progress', type: 'bug'},
-        {id: '3', title: 'Install Dependencies', status: 'done', type: 'feature'},
-        {id: '4', title: 'Create Grid View', status: 'done', type: 'feature'},
-        {id: '5', title: 'Set Up Github', status: 'in-progress', type: 'bug'},
-        {id: '6', title: 'Create App Component', status: 'todo', type: 'task'},
-        {id: '7', title: 'Plain Component Diagram', status: 'review', type: 'bug'},
-        {id: '8', title: 'Install React', status: 'review', type: 'task'},
-        {id: '9', title: 'Invite Collaborators', status: 'todo', type: 'feature'},
-        {id: '10', title: 'App Crashes', status: 'review', type: 'task'},
-    ],
+    tasks: {
+        'task-1': {id: 'task-1', title: 'Create List View', status: 'done', type: 'bug'},
+        'task-2': {id: 'task-2', title: 'Create Add Form', status: 'in-progress', type: 'bug'},
+        'task-3': {id: 'task-3', title: 'Install Dependencies', status: 'done', type: 'feature'},
+        'task-4': {id: 'task-4', title: 'Create Grid View', status: 'done', type: 'feature'},
+        'task-5': {id: 'task-5', title: 'Set Up Github', status: 'in-progress', type: 'bug'},
+        'task-6': {id: 'task-6', title: 'Create App Component', status: 'todo', type: 'task'},
+        'task-7': {id: 'task-7', title: 'Plain Component Diagram', status: 'review', type: 'bug'},
+        'task-8': {id: 'task-8', title: 'Install React', status: 'review', type: 'task'},
+        'task-9': {id: 'task-9', title: 'Invite Collaborators', status: 'todo', type: 'feature'},
+        'task-10': {id: 'task-10', title: 'App Crashes', status: 'review', type: 'task'},
+    },
     columns: {
         'column-1': {
             id: 'column-1',
@@ -24,11 +24,16 @@ const initialData = {
         },
         'column-3': {
             id: 'column-3',
+            title: 'in review',
+            taskIds: ['task-8']
+        },
+        'column-4': {
+            id: 'column-4',
             title: 'done',
-            taskIds: []
+            taskIds: ['task-9', 'task-10']
         }
     },
-    columnOrder: ['column-1', 'column-2', 'column-3']
+    columnOrder: ['column-1', 'column-2', 'column-3', 'column-4']
 };
 
 export default initialData;
