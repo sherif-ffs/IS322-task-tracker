@@ -6,9 +6,9 @@ import Task from './Task'
 const Container = styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
-    border-radius: 2px;
+    border-radius: 5px;
     width: 300px;
-    background-color: #fafafa;
+    background-color: #ebecf0;
     display: flex;
     flex-direction: column;
 `
@@ -18,11 +18,13 @@ const Title = styled.h3`
 
 const TaskList = styled.div`
     padding: 8px;
-    transition: background-color 0.3s ease;
+    // transition: background-color 0.3s ease;
     min-height: 100px;
     flex-grow: 1;
+    margin-top: 5%;
+    border-radius: 0px 0px 5px 5px;
     background-color: #fafafa;
-    background-color: ${props => props.isDraggingOver ? 'skyblue' : '#fafafa'}
+    background-color: ${props => props.isDraggingOver ? '#ddd' : '#ebecf0'}
 
 `
 

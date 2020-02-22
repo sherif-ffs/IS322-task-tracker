@@ -4,13 +4,13 @@ import {Draggable} from 'react-beautiful-dnd';
 
 const Container = styled.div`
     border: 1px solid lightgrey;
-    padding: 15px;
-    margin: 10px;
-    margin-bottom: 8px;
-    border-radius: 5px;
+    padding: 20px;
+    margin: 2px;
+    margin-bottom: 2px;
+    border-radius: 1px;
     display: flex;
     flex-direction: column;
-    background-color: ${props => props.isDragging ? 'lightgreen' : 'white'};
+    background-color: ${props => props.isDragging ? '#fafafa' : 'white'};
     transform: ${props => props.isDragging ? 'rotate(5deg)' : 'rotate(0deg)'}
 
 `
