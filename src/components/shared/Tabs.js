@@ -45,8 +45,7 @@ const useStyles = makeStyles(() => ({
   tabs: {
     backgroundColor: '#ebecf0',
     color: `#0279bf`,
-    fontFamily: `Georgia, Arial, Helvetica, sans-serif`,
-    boxShadow: `0px 5px 10px rgba(0, 0, 0,. 3)`,
+    boxShadow: `0px 1px 15px rgba(0, 0, 0, .2)`,
     fontWeight: 900
   },
   grid: {
@@ -56,7 +55,7 @@ const useStyles = makeStyles(() => ({
   },
   table: {
     backgroundColor: 'whitesmoke',
-    marginTop: '4vh'  }
+    marginTop: '2vh'  }
 }));
 
 const FullWidthTabs = props => {
@@ -97,7 +96,7 @@ const FullWidthTabs = props => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}  className={classes.grid}>
-            <GridView></GridView>
+            <GridView state={props.state}></GridView>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction} className={classes.table}>
             <TableView allTasks={tasks}></TableView>

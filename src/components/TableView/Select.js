@@ -22,7 +22,7 @@ class FilterType extends React.Component {
     console.log('onTypeChange: ', this.onTypeChange)
         return (
             <FormControl className='filter-by-type-container filter'>
-            {/* <InputLabel id="demo-simple-select-label">Filter by type</InputLabel> */}
+            <InputLabel id="demo-simple-select-label">Filter by type</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"

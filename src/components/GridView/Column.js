@@ -19,7 +19,7 @@ const Title = styled.h3`
     padding-top: 20px;
     padding-bottom: 10px;
     font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-left: 10%;
     margin-top: 90%;
     font-weight: 700;

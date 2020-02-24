@@ -11,7 +11,7 @@ class App extends React.Component {
     const { tasks } = initialData;
     
     return (
-      <Tabs tasks={tasks}></Tabs>
+      <Tabs tasks={tasks} state={this.state}></Tabs>
     );
   }
 }

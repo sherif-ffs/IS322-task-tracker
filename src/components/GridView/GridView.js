@@ -6,22 +6,25 @@ import {DragDropContext, Droppable} from 'react-beautiful-dnd'
 import styled from 'styled-components'
 import initialData from '../../initialData'
 import Column from './Column'
+import Form from '../GridView/Form'
 
 const Container = styled.div`
   display: flex;
   margin-top: 5vh;
   flex-direction: row;
+//   border: 1px solid red;
   // height: 100vw;
   // width: min-content;
 `
 
 class GridView extends React.Component {
-  state = initialData;
-  onDragStart = () => {
-    document.body.style.color = 'black';
-    document.body.style.fontWeight = 'bold';
-    document.body.style.transition = `backgroundColor 0.2s ease`;
-}
+     state = this.props.state;
+
+//   onDragStart = () => {
+//     // document.body.style.color = 'black';
+//     // document.body.style.fontWeight = 'bold';
+//     // document.body.style.transition = `backgroundColor 0.2s ease`;
+//   }
 
 onDragUpdate = update => {
     const {destination} = update;
@@ -142,6 +145,7 @@ onDragEnd = (result) => {
                           /> 
                       })}
                       {provided.placeholder}
+                  <Form></Form>
                   </Container>
               )
               }
