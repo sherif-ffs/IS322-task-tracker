@@ -3,3 +3,7 @@
     height: min-content;
     background-color: transparent;
 }
+.task-container:hover {
+    background-color: #f7f3f3;
+    transition: .3s ease-in-out;
+}

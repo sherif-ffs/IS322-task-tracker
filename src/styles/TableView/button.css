@@ -3,6 +3,8 @@
     height: 6vh!important;
     display: flex;
     flex: .4;
+    background-color: #0279bf!important;
+    background-color: rgb(2, 121, 191)!important;
     margin-right: 50px!important;
 }
 

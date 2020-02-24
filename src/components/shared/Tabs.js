@@ -41,16 +41,28 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundColor: '#0279bf',
-    height: 800
+const useStyles = makeStyles(() => ({
+  tabs: {
+    backgroundColor: '#ebecf0',
+    color: `#0279bf`,
+    fontFamily: `Georgia, Arial, Helvetica, sans-serif`,
+    boxShadow: `0px 5px 10px rgba(0, 0, 0,. 3)`,
+    fontWeight: 900
   },
+  grid: {
+    backgroundColor: '#0279bf',
+    height: '96vh',
+    marginTop: '4vh'
+  },
+  table: {
+    backgroundColor: 'whitesmoke',
+    marginTop: '4vh'  }
 }));
 
 const FullWidthTabs = props => {
   const classes = useStyles();
-  const theme = useTheme();
+  let theme = useTheme();
+  theme = theme.direction
   console.log('theme: ', theme)
   const [value, setValue] = React.useState(0);
 
@@ -67,12 +79,11 @@ const FullWidthTabs = props => {
 
   return (
     <React.Fragment>
-      <AppBar position="static" color="default">
+      <AppBar position="fixed" color="default" className={classes.tabs}>
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="'primary'"
-          textColor="primary"
+          indicatorColor="#0279bf!important"
           variant="fullWidth"
           aria-label="full width tabs example"
         >
@@ -81,14 +92,14 @@ const FullWidthTabs = props => {
         </Tabs>
       </AppBar>
       <SwipeableViews
-        // axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} dir={theme.direction}  className={classes.root}>
+        <TabPanel value={value} index={0} dir={theme.direction}  className={classes.grid}>
             <GridView></GridView>
         </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
+        <TabPanel value={value} index={1} dir={theme.direction} className={classes.table}>
             <TableView allTasks={tasks}></TableView>
         </TabPanel>
       </SwipeableViews>

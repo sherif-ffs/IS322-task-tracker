@@ -15,6 +15,7 @@ const Container = styled.div`
 `
 const Title = styled.h3`
     padding-top: 20px;
+    padding-bottom: 10px;
     font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
     font-size: 1rem;
     margin-left: 10%;
@@ -30,7 +31,7 @@ const TaskList = styled.div`
     // transition: background-color 0.3s ease;
     min-height: 100px;
     flex-grow: 1;
-    margin-top: 1%;
+    margin-top: -2%;
     border-radius: 0px 0px 3px 3px;
     background-color: #fafafa;
     background-color: ${props => props.isDraggingOver ? '#ddd' : '#ebecf0'}

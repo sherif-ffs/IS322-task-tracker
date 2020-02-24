@@ -4,17 +4,15 @@ import {Draggable} from 'react-beautiful-dnd';
 
 const Container = styled.div`
     padding: 12px;
-    margin: 10px;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .4);
     background-color: ${props => props.isDragging ? '#fafafa' : 'white'};
     transform: ${props => props.isDragging ? 'rotate(5deg)' : 'rotate(0deg)'}
-    &:hover {
-        background-color: #ddd;
-    }
 `
 
 const Title = styled.h3`
@@ -24,6 +22,7 @@ const Title = styled.h3`
     opacity: .8;
     color: #333648;
 `
+
 export default class Task extends React.Component {
     render() {
         return (
@@ -33,6 +32,7 @@ export default class Task extends React.Component {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
+                        className="task-container"
                         isDragging={snapshot.isDragging}
                     >
                         <Title>{this.props.task.title}</Title>
