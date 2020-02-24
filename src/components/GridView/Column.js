@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {Droppable, Draggable} from 'react-beautiful-dnd'
 import Task from './Task'
+import Form from './Form';
 
 const Container = styled.div`
     margin: 8px;
@@ -11,6 +12,7 @@ const Container = styled.div`
     height: min-content;
     background-color: #ebecf0;
     display: flex;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, .9);
     flex-direction: column;
 `
 const Title = styled.h3`
@@ -28,8 +30,8 @@ const Title = styled.h3`
 const TaskList = styled.div`
     padding: 8px;
     padding-bottom: 50px;
-    // transition: background-color 0.3s ease;
-    min-height: 100px;
+    transition: background-color 0.3s ease;
+    // min-height: 100px;
     flex-grow: 1;
     margin-top: -2%;
     border-radius: 0px 0px 3px 3px;
@@ -50,6 +52,9 @@ export default class Column extends React.Component {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     isDragging={snapshot.isDragging}
+                    onClick={(e) => {
+                        console.log('e.target.parentElement: ', e.target.parentElement)
+                    }}
                 >
                     <Title>{this.props.column.title}</Title>
                     <Droppable droppableId={this.props.column.id}>
@@ -64,6 +69,7 @@ export default class Column extends React.Component {
                             </TaskList>
                         )}
                     </Droppable>
+                    {/* <Form></Form> */}
                 </Container>
             )}
             </Draggable>

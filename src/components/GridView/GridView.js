@@ -32,7 +32,7 @@ onDragUpdate = update => {
     document.body.style.backgroundColor = `rgba(152,193,217, ${opacity})`;
 }
 
-onDragEnd = result => {
+onDragEnd = (result) => {
     document.body.style.color = 'inherit';
     document.body.style.fontWeight = 'inherit';
     document.body.style.backgroundColor = `inherit`;
@@ -129,10 +129,10 @@ onDragEnd = result => {
                       ref={provided.innerRef}
                   >
                       {this.state.columnOrder.map((columnId, index) => {
-                      console.log('columnId: ',columnId)
+                    //   console.log('columnId: ',columnId)
                       const column = this.state.columns[columnId];
-                      console.log('column: ',column)
-                      console.log('this.state: ',this.state)
+                    //   console.log('column: ',column)
+                    //   console.log('this.state: ',this.state)
                       const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
                       return <Column 
                           key={column.id} 

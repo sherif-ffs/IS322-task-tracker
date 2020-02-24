@@ -16,13 +16,20 @@ const Container = styled.div`
 `
 
 const Title = styled.h3`
-    font-size: .9rem;
+    font-size: 1rem;
     font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
     font-weight: 300;
     opacity: .8;
     color: #333648;
 `
-
+const Type = styled.h6`
+    font-size: .75rem;
+    margin-top: 3px;
+    font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
+    font-weight: 300;
+    opacity: .9;
+    color: #333648;
+`
 export default class Task extends React.Component {
     render() {
         return (
@@ -36,6 +43,7 @@ export default class Task extends React.Component {
                         isDragging={snapshot.isDragging}
                     >
                         <Title>{this.props.task.title}</Title>
+                        <Type>{this.props.task.type}</Type>
                     </Container>
                 )}
             </Draggable>
