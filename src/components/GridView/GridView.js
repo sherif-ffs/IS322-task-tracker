@@ -17,7 +17,6 @@ const Container = styled.div`
 
 class GridView extends React.Component {
   state = initialData;
-
   onDragStart = () => {
     document.body.style.color = 'black';
     document.body.style.fontWeight = 'bold';
@@ -28,7 +27,8 @@ onDragUpdate = update => {
     const {destination} = update;
     const opacity = destination
         ? destination.index / Object.keys(this.state.tasks).length
-        : 0;
+        : 1;
+    console.log('opacity: ', opacity)
     document.body.style.backgroundColor = `rgba(152,193,217, ${opacity})`;
 }
 
@@ -115,7 +115,6 @@ onDragEnd = result => {
     return
 }
   render () {
-    
     return (
       <React.Fragment>
         <DragDropContext

@@ -44,13 +44,14 @@ function a11yProps(index) {
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: '#0279bf',
-    height: 1000
+    height: 800
   },
 }));
 
 const FullWidthTabs = props => {
   const classes = useStyles();
   const theme = useTheme();
+  console.log('theme: ', theme)
   const [value, setValue] = React.useState(0);
 
   const {tasks} = props;
@@ -65,12 +66,12 @@ const FullWidthTabs = props => {
   };
 
   return (
-    <div className={classes.root}>
+    <React.Fragment>
       <AppBar position="static" color="default">
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
+          indicatorColor="'primary'"
           textColor="primary"
           variant="fullWidth"
           aria-label="full width tabs example"
@@ -80,18 +81,18 @@ const FullWidthTabs = props => {
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        // axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} dir={theme.direction}>
+        <TabPanel value={value} index={0} dir={theme.direction}  className={classes.root}>
             <GridView></GridView>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
             <TableView allTasks={tasks}></TableView>
         </TabPanel>
       </SwipeableViews>
-    </div>
+      </React.Fragment>
   );
 }
 
