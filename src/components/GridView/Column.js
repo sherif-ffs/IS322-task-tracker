@@ -36,7 +36,7 @@ const TaskList = styled.div`
     margin-top: -2%;
     border-radius: 0px 0px 3px 3px;
     background-color: #fafafa;
-    background-color: ${props => props.isDraggingOver ? '#ddd' : '#ebecf0'}
+    background-color: ${props => props.isDraggingOver ? 'lightblue' : '#ebecf0'}
 
 `
 

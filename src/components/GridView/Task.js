@@ -11,7 +11,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .4);
-    background-color: ${props => props.isDragging ? '#67D4C9' : 'white'};
+    background-color: ${props => props.isDragging ? '#7FC7A7' : 'white'};
     transform: ${props => props.isDragging ? 'rotate(5deg)' : 'rotate(0deg)'}
 `
 
@@ -20,7 +20,7 @@ const Title = styled.h3`
     font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
     font-weight: 300;
     opacity: .8;
-    color: #333648;
+    // color: #333648;
 `
 const Type = styled.h6`
     font-size: .7rem;

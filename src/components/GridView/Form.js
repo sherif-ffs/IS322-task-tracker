@@ -1,7 +1,9 @@
 import React from 'react'
+
 import styled from 'styled-components'
 import Input from './Input'
 import FormSelect from './FormSelect'
+import FormButton from './FormButton';
 
 const Container = styled.div`
     height: min-content;
@@ -11,7 +13,7 @@ const Container = styled.div`
     background-color: #ebecf0;
     display: flex;
     flex-direction: column;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     font-size: 12px;
     border: 1px solid lightgrey;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .9);
@@ -37,6 +39,7 @@ export default class Form extends React.Component {
                 <Title>Add New Task</Title>
                 <Input></Input>
                 <FormSelect></FormSelect>
+                <FormButton></FormButton>
             </Container>
         )
     }
