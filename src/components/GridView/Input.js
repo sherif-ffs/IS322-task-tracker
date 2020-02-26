@@ -31,9 +31,6 @@ const InputContainer = styled.div`
 `
   return (
     <React.Fragment>
-      {/* <InputContainer> */}
-        <input className="form-input" placeholder="Enter a title for this card..."></input>
-      {/* </InputContainer> */}
     </React.Fragment>
   );
 }

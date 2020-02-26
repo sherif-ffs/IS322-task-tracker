@@ -62,12 +62,9 @@ const FullWidthTabs = props => {
   const classes = useStyles();
   let theme = useTheme();
   theme = theme.direction
-  console.log('theme: ', theme)
   const [value, setValue] = React.useState(0);
 
   const {tasks} = props;
-  console.log('tasks: ', tasks)
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -96,7 +93,7 @@ const FullWidthTabs = props => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}  className={classes.grid}>
-            <GridView state={props.state}></GridView>
+            <GridView tasks={props.tasks} state={props.state} onSubmit={props.onSubmit}></GridView>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction} className={classes.table}>
             <TableView allTasks={tasks}></TableView>

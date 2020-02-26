@@ -1,11 +1,18 @@
 import React from 'react'
 
 import styled from 'styled-components'
-import Input from './Input'
-import FormSelect from './FormSelect'
-import FormButton from './FormButton';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 
-const Container = styled.div`
+import '../../styles/GridView/input.css'
+import '../../styles/GridView/formSelect.css';
+import '../../styles/GridView/formButton.css'
+
+const Container = styled.form`
     height: min-content;
     margin-top: 1vh;
     width: 250px;
@@ -33,13 +40,50 @@ const Title = styled.h3`
 `
 
 export default class Form extends React.Component {
+    state = {
+        title: '',
+        type: 'task',
+        status: 'todo'
+      }
+
+      onSubmit(event) {
+        alert('submitted')
+        event.preventDefault();
+        this.props.onSubmit({
+          title: this.state.title,
+          type: this.state.type,
+          status: this.state.status
+        });
+      }
+
     render() {
         return (
-            <Container>
+            <Container onSubmit={this.onSubmit.bind(this)}>
                 <Title>Add New Task</Title>
-                <Input></Input>
-                <FormSelect></FormSelect>
-                <FormButton></FormButton>
+                <input 
+                    className="form-input" 
+                    placeholder="Enter a title for this card..."
+                    value={this.state.title}
+                    onChange={e => this.setState({ title: e.target.value })}
+                    >
+                </input>
+                <FormControl className="form-select-container">
+                    <InputLabel id="demo-simple-select-helper-label">Type</InputLabel>
+                    <Select
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    value={this.state.type}
+                    onChange={e => this.setState({ type: e.target.value })}
+                    >
+                    <MenuItem value="">
+                    </MenuItem>
+                    <MenuItem value='bug'>Bug</MenuItem>
+                    <MenuItem value='feature'>Feature</MenuItem>
+                    <MenuItem value='task'>Task</MenuItem>
+                    </Select>
+                    <FormHelperText>What type of task is this</FormHelperText>
+                </FormControl>
+            <Button variant="contained" className="form-button" type="submit">Add Task</Button>
             </Container>
         )
     }

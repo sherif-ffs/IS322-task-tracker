@@ -19,7 +19,6 @@ const Container = styled.div`
 
 class GridView extends React.Component {
      state = this.props.state;
-
 //   onDragStart = () => {
 //     // document.body.style.color = 'black';
 //     // document.body.style.fontWeight = 'bold';
@@ -31,7 +30,6 @@ onDragUpdate = update => {
     const opacity = destination
         ? destination.index / Object.keys(this.state.tasks).length
         : 1;
-    console.log('opacity: ', opacity)
     document.body.style.backgroundColor = `rgba(152,193,217, ${opacity})`;
 }
 
@@ -62,7 +60,6 @@ onDragEnd = (result) => {
             ...this.state,
             columnOrder: newColumnOrder,
         };
-        // console.log('newState: ', newState)
         this.setState(newState);
         return;
     }
@@ -118,6 +115,13 @@ onDragEnd = (result) => {
     return
 }
   render () {
+    const arrayToObject = (array) =>
+    array.reduce((obj, item) => {
+        obj[item.id] = item
+        return obj
+    }, {})
+    const peopleObject = arrayToObject(this.props.tasks)
+
     return (
       <React.Fragment>
         <DragDropContext
@@ -132,11 +136,9 @@ onDragEnd = (result) => {
                       ref={provided.innerRef}
                   >
                       {this.state.columnOrder.map((columnId, index) => {
-                    //   console.log('columnId: ',columnId)
-                      const column = this.state.columns[columnId];
-                    //   console.log('column: ',column)
-                    //   console.log('this.state: ',this.state)
-                      const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
+                        const column = this.state.columns[columnId];
+                        const tasks = column.taskIds.map(taskId => peopleObject[taskId]);
+
                       return <Column 
                           key={column.id} 
                           column={column} 
@@ -145,7 +147,7 @@ onDragEnd = (result) => {
                           /> 
                       })}
                       {provided.placeholder}
-                  <Form></Form>
+                  <Form onSubmit={this.props.onSubmit}></Form>
                   </Container>
               )
               }
