@@ -13,6 +13,7 @@ class App extends React.Component {
     let { tasks } = this.state;
     task.id = `task-${this.state.tasks.length + 1}`
     tasks.push(task);
+    console.log('task: ', task)
     this.state.columns['column-1'].taskIds.push(task.id)
     this.setState( {tasks} );
   }

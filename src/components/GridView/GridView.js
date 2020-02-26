@@ -120,7 +120,7 @@ onDragEnd = (result) => {
         obj[item.id] = item
         return obj
     }, {})
-    const peopleObject = arrayToObject(this.props.tasks)
+    const taskList = arrayToObject(this.props.tasks)
 
     return (
       <React.Fragment>
@@ -137,7 +137,7 @@ onDragEnd = (result) => {
                   >
                       {this.state.columnOrder.map((columnId, index) => {
                         const column = this.state.columns[columnId];
-                        const tasks = column.taskIds.map(taskId => peopleObject[taskId]);
+                        const tasks = column.taskIds.map(taskId => taskList[taskId]);
 
                       return <Column 
                           key={column.id} 

@@ -8,7 +8,9 @@ table {
   .table-body {
     border: none;
   }
-
+  tr {
+    padding: 10px;
+  }
   th, td {
     padding: 15px;
     font-family: 'Lato', Arial, Helvetica, sans-serif;

@@ -50,7 +50,8 @@ const useStyles = makeStyles(() => ({
   },
   grid: {
     backgroundColor: '#0279bf',
-    height: '96vh',
+    height: 'min-content',
+    paddingBottom: '50vh',
     marginTop: '4vh'
   },
   table: {

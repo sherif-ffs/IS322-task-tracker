@@ -47,18 +47,19 @@ export default class Form extends React.Component {
       }
 
       onSubmit(event) {
-        alert('submitted')
         event.preventDefault();
         this.props.onSubmit({
           title: this.state.title,
           type: this.state.type,
           status: this.state.status
         });
+        document.querySelector('.form').reset()
+
       }
 
     render() {
         return (
-            <Container onSubmit={this.onSubmit.bind(this)}>
+            <Container onSubmit={this.onSubmit.bind(this)} className="form">
                 <Title>Add New Task</Title>
                 <input 
                     className="form-input" 
