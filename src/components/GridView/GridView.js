@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import initialData from '../../initialData'
 import Column from './Column'
 import Form from '../GridView/Form'
+import Modal from './Modal'
 
 const Container = styled.div`
   display: flex;
@@ -179,6 +180,7 @@ onAddTask = (task) => {
               }
           </Droppable>
         </DragDropContext>
+        {/* <Modal></Modal> */}
         </React.Fragment>
     )
       
