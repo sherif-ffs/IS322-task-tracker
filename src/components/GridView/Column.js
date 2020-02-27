@@ -1,8 +1,8 @@
 import React from 'react'
+
 import styled from 'styled-components'
 import {Droppable, Draggable} from 'react-beautiful-dnd'
 import Task from './Task'
-import Form from './Form';
 
 const Container = styled.div`
     margin: 8px;
@@ -37,7 +37,6 @@ const TaskList = styled.div`
     border-radius: 0px 0px 3px 3px;
     background-color: #fafafa;
     background-color: ${props => props.isDraggingOver ? 'lightblue' : '#ebecf0'}
-
 `
 
 export default class Column extends React.Component {
@@ -53,7 +52,12 @@ export default class Column extends React.Component {
                     {...provided.dragHandleProps}
                     isDragging={snapshot.isDragging}
                 >
-                    <Title>{this.props.column.title}</Title>
+                    <Title>
+                        {this.props.column.title} 
+                        <span style={{opacity: '.7', marginLeft: '4px', fontSize: '90%'}}>
+                            ({this.props.column.taskIds.length})
+                        </span>
+                    </Title>
                     <Droppable droppableId={this.props.column.id}>
                         {(provided, snapshot) => (
                             <TaskList
