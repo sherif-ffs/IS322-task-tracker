@@ -12,7 +12,7 @@ const Container = styled.div`
     flex-direction: column;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .4);
     background-color: ${props => props.isDragging ? '#7FC7A7' : 'white'};
-    transform: ${props => props.isDragging ? 'rotate(5deg)' : 'rotate(0deg)'}
+    // transform: ${props => props.isDragging ? 'rotate(5deg)' : 'rotate(0deg)'}
 `
 
 const Title = styled.h3`
@@ -25,20 +25,21 @@ const Title = styled.h3`
 const Type = styled.h6`
     font-size: .7rem;
     margin-top: 6px;
-    background-color: #0279bf;
+    // background-color: #0279bf;
     width: min-content;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
     padding-top: 3px;
     padding-bottom: 3px;
     border-radius: 3px;
     font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
-    font-weight: 300;
+    font-weight: 600;
     opacity: .9;
-    color: #fafafa;
+    // color: #fafafa;
 `
 export default class Task extends React.Component {
     render() {
+        console.log('this.props: ', this.props)
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
                 {(provided, snapshot) => (
@@ -48,10 +49,16 @@ export default class Task extends React.Component {
                         ref={provided.innerRef}
                         className="task-container"
                         isDragging={snapshot.isDragging}
-                        // onClick={alert('clicked')}
                     >
                         <Title>{this.props.task.title}</Title>
-                        <Type>{this.props.task.type}</Type>
+                        <Type style={
+                            {
+                                backgroundColor: `${this.props.task.type === "bug" ?'#DE3C4B' 
+                                : (this.props.task.type === 'task' ? "#F5BB00" : "#4FB286")}`,
+
+                                color: `${this.props.task.type === 'task' ? '#333648' : '#fafafa'}`
+                            }
+                        }>{this.props.task.type}</Type>
                     </Container>
                 )}
             </Draggable>
