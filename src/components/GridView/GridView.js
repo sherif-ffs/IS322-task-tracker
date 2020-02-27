@@ -113,9 +113,7 @@ onDragEnd = (result) => {
     this.setState(newState);
     return
 }
-newFunction() {
 
-}
 onAddTask = (task) => {
     let { tasks } = this.props.state;
     task.id = `task-${this.state.tasks.length + 1}`
