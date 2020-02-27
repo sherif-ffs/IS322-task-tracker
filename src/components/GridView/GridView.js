@@ -71,7 +71,6 @@ onDragEnd = (result) => {
         const newTaskIds = Array.from(start.taskIds);
         newTaskIds.splice(source.index, 1)
         newTaskIds.splice(destination.index, 0, draggableId)
-
         const newColumn = {
             ...start,
             taskIds: newTaskIds,
@@ -114,7 +113,36 @@ onDragEnd = (result) => {
     this.setState(newState);
     return
 }
+newFunction() {
+
+}
+onAddTask = (task) => {
+    let { tasks } = this.props.state;
+    task.id = `task-${this.state.tasks.length + 1}`
+    tasks.push(task);
+    let columnOneTaskIds = this.state.columns['column-1'].taskIds; 
+    columnOneTaskIds.push(task.id)
+
+    const newColumn = {
+      // ...['column-1'],
+      id: 'column-1',
+      title: 'to-do',
+      taskIds: columnOneTaskIds,
+  }
+
+    const newState = {
+      ...this.state,
+      tasks: tasks,
+      columns: {
+          ...this.state.columns,
+          ['column-1']: newColumn,
+      }
+  }
+  console.log('newState: ', newState)
+    this.setState(newState);
+  }
   render () {
+
     const arrayToObject = (array) =>
     array.reduce((obj, item) => {
         obj[item.id] = item
@@ -147,7 +175,7 @@ onDragEnd = (result) => {
                           /> 
                       })}
                       {provided.placeholder}
-                  <Form onSubmit={this.props.onSubmit}></Form>
+                  <Form onSubmit={this.onAddTask}></Form>
                   </Container>
               )
               }

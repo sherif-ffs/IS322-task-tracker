@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -66,6 +67,7 @@ const FullWidthTabs = props => {
   const [value, setValue] = React.useState(0);
 
   const {tasks} = props;
+  // console.log('props: ', props)
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -94,7 +96,7 @@ const FullWidthTabs = props => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}  className={classes.grid}>
-            <GridView tasks={props.tasks} state={props.state} onSubmit={props.onSubmit}></GridView>
+            <GridView tasks={tasks} state={props.state} onSubmit={props.onSubmit}></GridView>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction} className={classes.table}>
             <TableView allTasks={tasks}></TableView>

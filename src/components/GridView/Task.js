@@ -48,6 +48,7 @@ export default class Task extends React.Component {
                         ref={provided.innerRef}
                         className="task-container"
                         isDragging={snapshot.isDragging}
+                        // onClick={alert('clicked')}
                     >
                         <Title>{this.props.task.title}</Title>
                         <Type>{this.props.task.type}</Type>

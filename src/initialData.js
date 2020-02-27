@@ -1,15 +1,15 @@
 const initialData = {
     tasks: [
-        {id: 'task-1', title: 'Create List View', status: 'done', type: 'bug'},
-        {id: 'task-2', title: 'Create Add Form', status: 'in-progress', type: 'bug'},
-        {id: 'task-3', title: 'Install Dependencies', status: 'done', type: 'feature'},
-        {id: 'task-4', title: 'Create Grid View', status: 'done', type: 'feature'},
-        {id: 'task-5', title: 'Set Up Github', status: 'in-progress', type: 'bug'},
-        {id: 'task-6', title: 'Create App Component', status: 'todo', type: 'task'},
-        {id: 'task-7', title: 'Plain Component Diagram', status: 'review', type: 'bug'},
+        {id: 'task-1', title: 'Create List View', status: 'todo', type: 'bug'},
+        {id: 'task-2', title: 'Create Add Form', status: 'todo', type: 'bug'},
+        {id: 'task-3', title: 'Install Dependencies', status: 'todo', type: 'feature'},
+        {id: 'task-4', title: 'Create Grid View', status: 'todo', type: 'feature'},
+        {id: 'task-5', title: 'Set Up Github', status: 'doing', type: 'bug'},
+        {id: 'task-6', title: 'Create App Component', status: 'doing', type: 'task'},
+        {id: 'task-7', title: 'Plain Component Diagram', status: 'doing', type: 'bug'},
         {id: 'task-8', title: 'Install React', status: 'review', type: 'task'},
-        {id: 'task-9', title: 'Invite Collaborators', status: 'todo', type: 'feature'},
-       {id: 'task-10', title: 'App Crashes', status: 'review', type: 'task'},
+        {id: 'task-9', title: 'Invite Collaborators', status: 'done', type: 'feature'},
+       {id: 'task-10', title: 'App Crashes', status: 'done', type: 'task'},
     ],
     columns: {
         'column-1': {
