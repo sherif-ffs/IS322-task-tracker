@@ -85,7 +85,7 @@ class TableView extends React.Component {
           searchTasksByTitle={this.searchTasksByTitle.bind(this)}
           onTypeChange={this.onTypeChange.bind(this)}
         ></Filters>
-        <Table allTasks={filteredItems}></Table>
+        <Table allTasks={filteredItems} searchInput={this.state.searchInput}></Table>
       </section>
     )
   }

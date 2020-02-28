@@ -2,10 +2,11 @@ import React from 'react';
 
 import '../../styles/TableView/table.css'
 import TableRow from './TableRow'
+import ErrorMessage from './ErrorMessage'
 
 const Table = props => {
 
-  let {allTasks} = props; 
+  let {allTasks, searchInput} = props; 
   let tableRows
   console.log('allTasks: ', allTasks) // if allTasks is empty, render error component
 
@@ -19,7 +20,7 @@ const Table = props => {
                 id={tableRow.id}
                 />
   })
-  : tableRows = <h1>asda</h1>
+  : tableRows = <ErrorMessage searchInput={searchInput}></ErrorMessage>
 
     return (
         <table>
