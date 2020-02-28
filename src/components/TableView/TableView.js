@@ -44,7 +44,7 @@ class TableView extends React.Component {
     if (!!searchInput) {
       if (searchInput !== '') {
         tasks = tasks.filter(task => task.title.toLowerCase().includes(searchInput.trim('').toLowerCase()));
-        return tasks
+          return tasks 
       } else {
         tasks = Object.keys(this.props.allTasks).map(key => {
           return this.props.allTasks[key];
@@ -73,8 +73,7 @@ class TableView extends React.Component {
         })
       }
     }
-
-    return tasks
+      return tasks
   }
 
   render() {

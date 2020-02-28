@@ -117,13 +117,24 @@ onDragEnd = (result) => {
 
 onAddTask = (task) => {
     let { tasks } = this.props.state;
+
     task.id = `task-${this.state.tasks.length + 1}`
-    tasks.push(task);
     let columnOneTaskIds = this.state.columns['column-1'].taskIds; 
-    columnOneTaskIds.push(task.id)
+
+    // check if task.title is an empty string
+    if (task.title.length > 0) {
+        tasks.push(task);
+        columnOneTaskIds.push(task.id)
+        document.querySelector('.form-input').style.border = '0px solid red';
+        document.querySelector('.form-input').placeholder= 'Enter a title for this card...';
+        document.querySelector('.form-input').classList.remove('error-placeholder')
+    } else{ 
+        document.querySelector('.form-input').style.border = '2px solid #DE3C4B';
+        document.querySelector('.form-input').placeholder= 'Please enter a title...';
+        document.querySelector('.form-input').classList.add('error-placeholder')
+    }        
 
     const newColumn = {
-      // ...['column-1'],
       id: 'column-1',
       title: 'to-do',
       taskIds: columnOneTaskIds,
@@ -137,8 +148,8 @@ onAddTask = (task) => {
           ['column-1']: newColumn,
       }
   }
-  console.log('newState: ', newState)
-    this.setState(newState);
+    console.log('newState: ', newState)
+    this.setState(newState);    
   }
   render () {
 

@@ -6,8 +6,11 @@ import TableRow from './TableRow'
 const Table = props => {
 
   let {allTasks} = props; 
+  let tableRows
+  console.log('allTasks: ', allTasks) // if allTasks is empty, render error component
 
-  let tableRows = allTasks.map((tableRow, i) => {
+  allTasks.length > 0 ?
+  tableRows = allTasks.map((tableRow, i) => {
       return <TableRow
                 title={tableRow.title}
                 status={tableRow.status}
@@ -16,6 +19,7 @@ const Table = props => {
                 id={tableRow.id}
                 />
   })
+  : tableRows = <h1>asda</h1>
 
     return (
         <table>

@@ -30,3 +30,8 @@
     margin-left: 0px!important;
     color: #333648;
 }
+.error-placeholder::placeholder {
+    color: #DE3C4B;
+    opacity: 1;
+    font-weight: 600;
+}

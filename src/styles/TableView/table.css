@@ -1,9 +1,14 @@
+body {
+  background-color: whitesmoke;
+}
 table {
     width: 70%;
     margin-left: 15%;
     border-collapse: collapse;
     border: none;
     margin-top: 2%;
+    background-color: whitesmoke;
+    padding-bottom: 50px;
   }
   .table-body {
     border: none;

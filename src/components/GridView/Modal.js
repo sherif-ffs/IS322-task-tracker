@@ -62,7 +62,7 @@ const Title = styled.h3`
 
 export default class Modal extends React.Component {
     state = {
-        title: 'Task 1',
+        title: 'Create Grid View',
         type: 'task',
         status: 'todo'
       }
@@ -82,7 +82,6 @@ export default class Modal extends React.Component {
             <ModalWrapper>
                 <Container onSubmit={this.onSubmit.bind(this)} className="modal-form">
                     <Title>Edit Task</Title>
-                    <label>New Task Name</label>
                     <input 
                         className="form-input" 
                         placeholder="Enter a title for this card..."
@@ -108,7 +107,7 @@ export default class Modal extends React.Component {
                     </FormControl>
                 </Container>
                 <ButtonsWrapper>
-                        <Button variant="contained" className="form-button" type="submit">Edit Task</Button>
+                        <Button variant="contained" className="form-button" type="submit">Save Changes</Button>
                         <Button variant="contained" className="form-button delete" type="submit">Delete Task</Button>
                     </ButtonsWrapper>
             </ModalWrapper>
