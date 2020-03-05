@@ -1,0 +1,20 @@
+/* important flag to override material ui styles */
+
+.form-button-modal {
+    padding: 10px!important;
+    margin-left: 1%!important;
+    margin-right: 1%!important;
+    width: 85%!important;
+    margin-top: 5%!important;
+    background-color: #4FB286!important;
+    color: white!important;
+}
+.form-button-modal.delete {
+    background-color: #B00020!important;
+    color: white!important;
+    margin-left: 2.5%!important;
+}
+.modal-form-select-container {
+    width: 85%;
+    margin-left: 5%!important;
+}
