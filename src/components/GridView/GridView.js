@@ -26,6 +26,17 @@ class GridView extends React.Component {
 //     // document.body.style.transition = `backgroundColor 0.2s ease`;
 //   }
 
+onShowModal = (event) => {
+    // alert(event.target)
+    
+    if (event.target.children.length > 0) {
+        console.log('event.target.children: ', event.target.children)
+        console.log('event.target.children[0].innerText: ', event.target.children[0].innerText)
+    }
+    document.querySelector('.modal-wrapper').style.display = "flex"
+
+}
+
 onDragUpdate = update => {
     const {destination} = update;
     const opacity = destination
@@ -173,15 +184,17 @@ onAddTask = (task) => {
                       {...provided.droppableProps}
                       ref={provided.innerRef}
                   >
+            {/* <Modal></Modal> */}
                       {this.state.columnOrder.map((columnId, index) => {
                         const column = this.state.columns[columnId];
                         const tasks = column.taskIds.map(taskId => taskList[taskId]);
 
                       return <Column 
-                          key={column.id} 
-                          column={column} 
-                          tasks={tasks} 
-                          index={index} 
+                                key={column.id} 
+                                column={column} 
+                                tasks={tasks} 
+                                index={index}
+                                onShowModal={this.onShowModal} 
                           /> 
                       })}
                       {provided.placeholder}
@@ -191,7 +204,6 @@ onAddTask = (task) => {
               }
           </Droppable>
         </DragDropContext>
-        {/* <Modal></Modal> */}
         </React.Fragment>
     )
       

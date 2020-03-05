@@ -1,6 +1,8 @@
 import React from 'react';
+
 import styled from 'styled-components';
 import {Draggable} from 'react-beautiful-dnd';
+import Modal from './Modal'
 
 const Container = styled.div`
     padding: 15px;
@@ -9,6 +11,7 @@ const Container = styled.div`
     margin-right: 5px;
     border-radius: 5px;
     display: flex;
+    z-index: 0!important;
     flex-direction: column;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .4);
     background-color: ${props => props.isDragging ? '#7FC7A7' : 'white'};
@@ -25,17 +28,17 @@ const Title = styled.h3`
 const Type = styled.h6`
     font-size: .7rem;
     margin-top: 6px;
-    // background-color: #0279bf;
     width: min-content;
+    position: relative;
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 3px;
     padding-bottom: 3px;
+    z-index: 1;
     border-radius: 3px;
     font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
     font-weight: 600;
     opacity: .9;
-    // color: #fafafa;
 `
 export default class Task extends React.Component {
     render() {
@@ -48,6 +51,7 @@ export default class Task extends React.Component {
                         ref={provided.innerRef}
                         className="task-container"
                         isDragging={snapshot.isDragging}
+                        onClick={(e) => this.props.onShowModal(e)}
                     >
                         <Title>{this.props.task.title}</Title>
                         <Type style={
@@ -58,6 +62,7 @@ export default class Task extends React.Component {
                                 color: `${this.props.task.type === 'task' ? '#333648' : '#fafafa'}`
                             }
                         }>{this.props.task.type}</Type>
+                    <Modal></Modal>
                     </Container>
                 )}
             </Draggable>

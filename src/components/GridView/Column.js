@@ -9,6 +9,7 @@ const Container = styled.div`
     border: 1px solid lightgrey;
     border-radius: 3px;
     width: 250px;
+    // z-index: 1!important;
     height: min-content;
     background-color: #ebecf0;
     display: flex;
@@ -41,6 +42,7 @@ const TaskList = styled.div`
 
 export default class Column extends React.Component {
     render() {
+    console.log('this.props: ', this.props)
     const tasks = this.props.tasks
         return (
             <Draggable draggableId={this.props.column.id} index={this.props.index}>
@@ -65,7 +67,13 @@ export default class Column extends React.Component {
                                 {...provided.droppableProps}
                                 isDraggingOver={snapshot.isDraggingOver}
                             >
-                            {tasks.map((task, index) => <Task key={task.id} task={task} index={index}></Task>)}
+                            {tasks.map((task, index) => 
+                            <Task 
+                                key={task.id} 
+                                task={task} 
+                                index={index}
+                                onShowModal={this.props.onShowModal}
+                            ></Task>)}
                             {provided.placeholder}
                             </TaskList>
                         )}
