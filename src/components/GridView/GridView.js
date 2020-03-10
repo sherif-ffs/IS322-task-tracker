@@ -50,15 +50,17 @@ saveModalDetails = (item) => {
     let tempTask = this.state.tasks;
     const requiredItem = this.index;
     let newTask;
-
+    console.log('item: ', item)
     tempTask.forEach(task => {
         if (task.id === requiredItem) {
             console.log('task: ', task)
             newTask = task
+            newTask.title = item.title ? item.title : task.title
+            newTask.type = item.type ? item.type : task.type
         }
     })
-    newTask.title = item.title
-    newTask.type = item.type
+    // newTask.title = item.title
+    // newTask.type = item.type
     this.setState({ 
         ...this.state,
     });
