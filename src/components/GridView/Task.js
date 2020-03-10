@@ -67,7 +67,10 @@ export default class Task extends React.Component {
                         }>{this.props.task.type}</Type>
                     </Container>
                     <Modal
-                    saveModalDetails={this.props.saveModalDetails}
+                        currentTitle={this.props.task.title}
+                        index={this.props.task.id}
+                        currentType={this.props.task.type}
+                        saveModalDetails={this.props.saveModalDetails}
                     ></Modal>
                     </React.Fragment>
                 )}

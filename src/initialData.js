@@ -10,7 +10,7 @@ const initialData = {
         {id: 'task-7', title: 'Plain Component Diagram', status: 'doing', type: 'bug'},
         {id: 'task-8', title: 'Install React', status: 'review', type: 'task'},
         {id: 'task-9', title: 'Invite Collaborators', status: 'done', type: 'feature'},
-       {id: 'task-10', title: 'App Crashes', status: 'done', type: 'task'},
+        {id: 'task-10', title: 'App Crashes', status: 'done', type: 'task'},
     ],
     columns: {
         'column-1': {

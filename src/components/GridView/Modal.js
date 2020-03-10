@@ -101,10 +101,10 @@ export default class Modal extends React.Component {
       }
 
     componentWillReceiveProps(nextProps) {
-    this.setState({
-        title: nextProps.title,
-        type: nextProps.type,
-    });
+        this.setState({
+            title: nextProps.title,
+            type: nextProps.type,
+        });
     }
 
     titleHandler(e) {
@@ -126,7 +126,6 @@ export default class Modal extends React.Component {
         return (
             <ModalWrapper className="modal-wrapper">
                 <Container 
-                // onSubmit={this.onSubmit.bind(this)}
                  className="modal-form"
                  >
                     <Title>Edit Task</Title>
