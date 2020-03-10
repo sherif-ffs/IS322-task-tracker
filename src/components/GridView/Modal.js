@@ -96,39 +96,53 @@ const Title = styled.h3`
 
 export default class Modal extends React.Component {
     state = {
-        title: 'test',
-        type: 'task',
-        status: 'todo'
+        title: '',
+        type: '',
       }
 
-      onSubmit(event) {
-        event.preventDefault();
-        this.props.onSubmit({
-          title: this.state.title,
-          type: this.state.type,
-          status: this.state.status
-        });
-        document.querySelector('.modal-form').reset()
-      }
+    componentWillReceiveProps(nextProps) {
+    this.setState({
+        title: nextProps.title,
+        type: nextProps.type,
+    });
+    }
+
+    titleHandler(e) {
+        this.setState({ title: e.target.value });
+    }
+
+    typeHandler(e) {
+        console.log('e.target.value: ', e.target.value)
+        this.setState({ type: e.target.value });
+    }
+
+      handleSave() {
+        const item = this.state;
+        console.log('item: ', item)
+        this.props.saveModalDetails(item)
+    }
+
     render() {
         return (
             <ModalWrapper className="modal-wrapper">
-                <Container onSubmit={this.onSubmit.bind(this)} className="modal-form">
+                <Container 
+                // onSubmit={this.onSubmit.bind(this)}
+                 className="modal-form"
+                 >
                     <Title>Edit Task</Title>
                     <input 
                         className="form-input" 
-                        placeholder="Enter a title for this card..."
+                        placeholder="Enter a new title for this card..."
                         value={this.state.title}
-                        onChange={e => this.setState({ title: this.state.title })}
-                        >
+                        onChange={(e) => this.titleHandler(e)}>
                     </input>
                     <FormControl className="modal-form-select-container">
                         <InputLabel id="demo-simple-select-helper-label">Type</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
                             id="demo-simple-select-helper"
-                            value={this.state.type}
-                            onChange={e => this.setState({ type: e.target.value })}
+                            value={''}
+                            onChange={(e) => this.typeHandler(e)}
                         >
                         <MenuItem value="">
                         </MenuItem>
@@ -139,7 +153,12 @@ export default class Modal extends React.Component {
                         <FormHelperText>Set new type</FormHelperText>
                     </FormControl>
                     <ButtonsWrapper>
-                        <Button variant="contained" className="form-button-modal" type="submit">Save Changes</Button>
+                        <Button 
+                            variant="contained" 
+                            className="form-button-modal" 
+                            type="submit"
+                            onClick={() => { this.handleSave() }}
+                            >Save Changes</Button>
                         <Button variant="contained" className="form-button-modal delete" type="submit">Delete Task</Button>
                 </ButtonsWrapper>
                 </Container>

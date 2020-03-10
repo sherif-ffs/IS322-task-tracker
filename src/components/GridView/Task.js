@@ -42,16 +42,19 @@ const Type = styled.h6`
 `
 export default class Task extends React.Component {
     render() {
+        // console.log('this.props: ', this.props)
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
                 {(provided, snapshot) => (
+                    <React.Fragment>
                     <Container
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
+                        index={this.props.index}
                         className="task-container"
                         isDragging={snapshot.isDragging}
-                        onClick={(e) => this.props.onShowModal(e)}
+                        onClick={(event) => this.props.onShowModal(event, this.props.task.id)}
                     >
                         <Title>{this.props.task.title}</Title>
                         <Type style={
@@ -62,8 +65,11 @@ export default class Task extends React.Component {
                                 color: `${this.props.task.type === 'task' ? '#333648' : '#fafafa'}`
                             }
                         }>{this.props.task.type}</Type>
-                    <Modal></Modal>
                     </Container>
+                    <Modal
+                    saveModalDetails={this.props.saveModalDetails}
+                    ></Modal>
+                    </React.Fragment>
                 )}
             </Draggable>
         )

@@ -1,4 +1,5 @@
 const initialData = {
+    requiredItem: 0,
     tasks: [
         {id: 'task-1', title: 'Create List View', status: 'todo', type: 'bug'},
         {id: 'task-2', title: 'Create Add Form', status: 'todo', type: 'bug'},

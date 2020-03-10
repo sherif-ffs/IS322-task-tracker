@@ -42,7 +42,7 @@ const TaskList = styled.div`
 
 export default class Column extends React.Component {
     render() {
-    console.log('this.props: ', this.props)
+    // console.log('this.props: ', this.props)
     const tasks = this.props.tasks
         return (
             <Draggable draggableId={this.props.column.id} index={this.props.index}>
@@ -73,6 +73,8 @@ export default class Column extends React.Component {
                                 task={task} 
                                 index={index}
                                 onShowModal={this.props.onShowModal}
+                                // onEditModal={this.props.onEditModal}
+                                saveModalDetails={this.props.saveModalDetails}
                             ></Task>)}
                             {provided.placeholder}
                             </TaskList>

@@ -26,16 +26,45 @@ class GridView extends React.Component {
 //     // document.body.style.transition = `backgroundColor 0.2s ease`;
 //   }
 
-onShowModal = (event) => {
-    // alert(event.target)
-    
-    if (event.target.children.length > 0) {
-        console.log('event.target.children: ', event.target.children)
-        console.log('event.target.children[0].innerText: ', event.target.children[0].innerText)
-    }
-    document.querySelector('.modal-wrapper').style.display = "flex"
-
+onEditModal = (index) => {
+    this.setState({
+        requiredItem: index
+    });
 }
+
+onCloseModal = () => {
+    document.querySelector('.modal-wrapper').style.display = "none";
+}
+
+onShowModal = (event, index) => {    
+    document.querySelector('.modal-wrapper').style.display = "flex";
+
+    this.setState({
+        ...this.state,
+        requiredItem: index
+    });
+    this.index = index;
+}
+
+saveModalDetails = (item) => {
+    let tempTask = this.state.tasks;
+    const requiredItem = this.index;
+    let newTask;
+
+    tempTask.forEach(task => {
+        if (task.id === requiredItem) {
+            console.log('task: ', task)
+            newTask = task
+        }
+    })
+    newTask.title = item.title
+    newTask.type = item.type
+    this.setState({ 
+        ...this.state,
+    });
+
+    this.onCloseModal()
+  }
 
 onDragUpdate = update => {
     const {destination} = update;
@@ -184,7 +213,6 @@ onAddTask = (task) => {
                       {...provided.droppableProps}
                       ref={provided.innerRef}
                   >
-            {/* <Modal></Modal> */}
                       {this.state.columnOrder.map((columnId, index) => {
                         const column = this.state.columns[columnId];
                         const tasks = column.taskIds.map(taskId => taskList[taskId]);
@@ -195,6 +223,8 @@ onAddTask = (task) => {
                                 tasks={tasks} 
                                 index={index}
                                 onShowModal={this.onShowModal} 
+                                onEditModal={this.onEditModal}
+                                saveModalDetails={this.saveModalDetails}
                           /> 
                       })}
                       {provided.placeholder}
