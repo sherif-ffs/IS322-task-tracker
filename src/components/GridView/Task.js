@@ -11,7 +11,7 @@ const Container = styled.div`
     margin-right: 5px;
     border-radius: 5px;
     display: flex;
-    z-index: 0!important;
+    z-index: 1!important;
     flex-direction: column;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .4);
     background-color: ${props => props.isDragging ? '#7FC7A7' : 'white'};
@@ -66,12 +66,14 @@ export default class Task extends React.Component {
                             }
                         }>{this.props.task.type}</Type>
                     </Container>
-                    <Modal
+                    {/* <Modal
                         currentTitle={this.props.task.title}
                         index={this.props.task.id}
+                        onDeleteTask={this.props.onDeleteTask}
+                        onCloseModal={this.props.onCloseModal}
                         currentType={this.props.task.type}
                         saveModalDetails={this.props.saveModalDetails}
-                    ></Modal>
+                    ></Modal> */}
                     </React.Fragment>
                 )}
             </Draggable>

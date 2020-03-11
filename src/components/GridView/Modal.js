@@ -7,25 +7,13 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 import '../../styles/GridView/input.css'
 import '../../styles/GridView/formSelect.css';
 import '../../styles/GridView/formButton.css'
 import '../../styles/GridView/modal.css'
 
-// const ModalWrapper = styled.div`
-//     width: 30vw;
-//     height: 30vh;
-//     border: 1px solid red;
-//     background-color: #ebecf0;
-//     border: 1px solid lightgrey;
-//     box-shadow: 0px 1px 1px rgba(0, 0, 0, .9);
-//     border-radius: 3px;
-//     display: none; 
-//     flex-direction: row;
-//     margin-top: 15vh;
-//     z-index: 999!important;
-// `
 const ModalWrapper = styled.div`
     position: fixed;
     top: 0;
@@ -34,26 +22,14 @@ const ModalWrapper = styled.div`
     display: none;
     z-index: 999!important;
     height: 100%;
+    cursor: default;
     background: rgba(0, 0, 0, 0.5);
 `
-// const Container = styled.form`
-//     height: min-content;
-//     width: 200px;
-//     margin: 8px;
-//     margin-left: 2vw;
-//     background-color: #ebecf0;
-//     display: flex;
-//     // flex-direction: row;
-//     flex-direction: column;
-//     padding-bottom: 10px;
-//     z-index: 999!important;
-//     font-size: 12px;
-//     // border: 1px solid lightgrey;
-//     // border: 1px solid red;
-//     // box-shadow: 0px 1px 1px rgba(0, 0, 0, .9);
-//     border-radius: 3px;
-// `
-
+const HeaderContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+`
 const Container = styled.div`
     position: fixed;
     background: #ebecf0;
@@ -87,6 +63,7 @@ const Title = styled.h3`
     padding-bottom: 10px;
     font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
     font-size: 1.4rem;
+    flex: 1;
     margin-left: 5%;
     margin-top: 90%;
     font-weight: 700;
@@ -122,15 +99,31 @@ export default class Modal extends React.Component {
         this.props.saveModalDetails(item)
     }
 
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.onDeleteTask(this.props.index);          
+    }
     render() {
+        // console.log('this.props: ', this.props)
         return (
             <ModalWrapper className="modal-wrapper">
                 <Container 
                  className="modal-form"
                  >
+                     <HeaderContainer>
                     <Title>Edit Task</Title>
+                    <CancelIcon
+                        style={{
+                            marginRight: '20px',
+                            marginTop: '10px',
+                            cursor: 'pointer'
+                        }}
+                        fontSize='Large'
+                        onClick={this.props.onCloseModal}
+                    ></CancelIcon>
+                     </HeaderContainer>
                     <input 
-                        className="form-input" 
+                        className="modal-form-input" 
                         placeholder="Enter a new title for this card..."
                         value={this.state.title}
                         onChange={(e) => this.titleHandler(e)}>
@@ -158,7 +151,13 @@ export default class Modal extends React.Component {
                             type="submit"
                             onClick={() => { this.handleSave() }}
                             >Save Changes</Button>
-                        <Button variant="contained" className="form-button-modal delete" type="submit">Delete Task</Button>
+                        <Button 
+                            variant="contained" 
+                            className="form-button-modal delete" 
+                            type="submit"
+                            onClick={this.handleDelete.bind(this)}
+                            // onClick={() => this.handleDelete(this.props.index)}
+                        >Delete Task</Button>
                 </ButtonsWrapper>
                 </Container>
                 

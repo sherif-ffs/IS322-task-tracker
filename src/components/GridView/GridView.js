@@ -38,7 +38,7 @@ onCloseModal = () => {
 
 onShowModal = (event, index) => {    
     document.querySelector('.modal-wrapper').style.display = "flex";
-
+    console.log('index: ', index)
     this.setState({
         ...this.state,
         requiredItem: index
@@ -153,12 +153,74 @@ onDragEnd = (result) => {
             [newFinish.id]: newFinish
         }
     }
+    console.log('newState dragEnd: ', newState)
     this.setState(newState);
     return
 }
 
+onDeleteTask = (index) => {
+    let { tasks, columns } = this.state;
+    console.log('this.state onDeleteTask: ', this.state)
+
+    const taskToDelete = tasks.find(element => element.id === index);
+    const columnsArray = []
+
+    let columnWeNeed;
+    let columnKey;
+    let columnTaskListWeNeed;
+    
+    for (let key in columns) {
+        columnsArray.push(Object.values(columns[key]))
+      }
+
+      columnsArray.forEach(column => {
+          for (let i=0; i<column.length; i++) {
+              if (column[2].includes(index)) {
+                  columnWeNeed = column;
+                  columnKey = column[0]
+                  columnTaskListWeNeed = column[2]
+              }
+          }
+      })
+
+    // tasks.pop(taskToDelete);
+    const taskIndex = tasks.indexOf(taskToDelete);
+    const newIndex = columnTaskListWeNeed.indexOf(index);
+
+    if (newIndex > -1) {
+        columnTaskListWeNeed.splice(newIndex, 1);
+        console.log('columnTaskListWeNeed: ', columnTaskListWeNeed)
+    }
+    if (taskIndex > -1) {
+        tasks.splice(taskIndex, 1);
+    }
+    //  columnTaskListWeNeed.pop(index)
+    //  columnOneTaskIds.push(task.id)
+
+    const newColumn = {
+        id: columnWeNeed[0],
+        title: columnWeNeed[1],
+        taskIds: columnTaskListWeNeed
+    }
+    // console.log('newColumn: ', newColumn)
+    const newState = {
+        ...this.state,
+        tasks: tasks,
+        columns: {
+            ...this.state.columns,
+            newColumn
+        }
+    }
+
+    // console.log('newState: ', newState)
+
+    this.setState(newState);    
+    this.onCloseModal()
+
+}
+
 onAddTask = (task) => {
-    let { tasks } = this.props.state;
+    let { tasks } = this.state;
 
     task.id = `task-${this.state.tasks.length + 1}`
     let columnOneTaskIds = this.state.columns['column-1'].taskIds; 
@@ -190,9 +252,9 @@ onAddTask = (task) => {
           ['column-1']: newColumn,
       }
   }
-    console.log('newState: ', newState)
     this.setState(newState);    
   }
+
   render () {
 
     const arrayToObject = (array) =>
@@ -200,7 +262,7 @@ onAddTask = (task) => {
         obj[item.id] = item
         return obj
     }, {})
-    const taskList = arrayToObject(this.props.tasks)
+    const taskList = arrayToObject(this.state.tasks)
 
     return (
       <React.Fragment>
@@ -215,22 +277,33 @@ onAddTask = (task) => {
                       {...provided.droppableProps}
                       ref={provided.innerRef}
                   >
+
                       {this.state.columnOrder.map((columnId, index) => {
                         const column = this.state.columns[columnId];
+                        // console.log('column: ', column)
                         const tasks = column.taskIds.map(taskId => taskList[taskId]);
-
+                        // console.log('tasks: ', tasks)                        
                       return <Column 
                                 key={column.id} 
                                 column={column} 
                                 tasks={tasks} 
                                 index={index}
+                                onDeleteTask={this.onDeleteTask}
                                 onShowModal={this.onShowModal} 
+                                onCloseModal={this.onCloseModal}
                                 onEditModal={this.onEditModal}
                                 saveModalDetails={this.saveModalDetails}
                           /> 
                       })}
                       {provided.placeholder}
                   <Form onSubmit={this.onAddTask}></Form>
+                  <Modal
+                        onDeleteTask={this.onDeleteTask}
+                        onCloseModal={this.onCloseModal}
+                        index={this.index}
+                        // currentType={this.task.type}
+                        saveModalDetails={this.saveModalDetails}
+                    ></Modal>
                   </Container>
               )
               }

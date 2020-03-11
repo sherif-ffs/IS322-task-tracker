@@ -72,8 +72,9 @@ export default class Column extends React.Component {
                                 key={task.id} 
                                 task={task} 
                                 index={index}
+                                onDeleteTask={this.props.onDeleteTask}
                                 onShowModal={this.props.onShowModal}
-                                // onEditModal={this.props.onEditModal}
+                                onCloseModal={this.props.onCloseModal}
                                 saveModalDetails={this.props.saveModalDetails}
                             ></Task>)}
                             {provided.placeholder}
