@@ -54,7 +54,6 @@ export default class Form extends React.Component {
           status: this.state.status
         });
         document.querySelector('.form').reset()
-
       }
 
     render() {

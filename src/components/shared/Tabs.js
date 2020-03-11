@@ -101,7 +101,7 @@ const FullWidthTabs = props => {
             <GridView tasks={tasks} state={props.state} onSubmit={props.onSubmit}></GridView>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction} className={classes.table}>
-            <TableView allTasks={tasks}></TableView>
+            <TableView allTasks={tasks} state={props.state}></TableView>
         </TabPanel>
       </SwipeableViews>
       </React.Fragment>
