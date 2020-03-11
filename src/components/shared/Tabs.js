@@ -69,7 +69,7 @@ const FullWidthTabs = props => {
   const [value, setValue] = React.useState(0);
 
   const {tasks} = props;
-  // console.log('props: ', props)
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

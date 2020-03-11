@@ -89,13 +89,11 @@ export default class Modal extends React.Component {
     }
 
     typeHandler(e) {
-        console.log('e.target.value: ', e.target.value)
         this.setState({ type: e.target.value });
     }
 
       handleSave() {
         const item = this.state;
-        console.log('item: ', item)
         this.props.saveModalDetails(item)
     }
 
@@ -103,15 +101,15 @@ export default class Modal extends React.Component {
         e.preventDefault();
         this.props.onDeleteTask(this.props.index);          
     }
+    
     render() {
-        // console.log('this.props: ', this.props)
         return (
             <ModalWrapper className="modal-wrapper">
                 <Container 
                  className="modal-form"
                  >
                      <HeaderContainer>
-                    <Title>Edit Task</Title>
+                    <Title>{"Edit task"}</Title>
                     <CancelIcon
                         style={{
                             marginRight: '20px',
@@ -125,7 +123,7 @@ export default class Modal extends React.Component {
                     <input 
                         className="modal-form-input" 
                         placeholder="Enter a new title for this card..."
-                        value={this.state.title}
+                        value={this.state.value}
                         onChange={(e) => this.titleHandler(e)}>
                     </input>
                     <FormControl className="modal-form-select-container">
@@ -151,13 +149,13 @@ export default class Modal extends React.Component {
                             type="submit"
                             onClick={() => { this.handleSave() }}
                             >Save Changes</Button>
-                        <Button 
+                        {/* <Button 
                             variant="contained" 
                             className="form-button-modal delete" 
                             type="submit"
                             onClick={this.handleDelete.bind(this)}
                             // onClick={() => this.handleDelete(this.props.index)}
-                        >Delete Task</Button>
+                        >Delete Task</Button> */}
                 </ButtonsWrapper>
                 </Container>
                 

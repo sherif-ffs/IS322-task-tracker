@@ -23,7 +23,6 @@ const searchInputWrapper = styled.span`
     border: 1px solid red
 `
 const ErrorMessage = (props) => {
-  console.log('props: ', props)
   const text = `Your search "${props.searchInput}" is not the name of a task`
   return (
       <Container>

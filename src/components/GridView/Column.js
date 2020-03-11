@@ -42,8 +42,8 @@ const TaskList = styled.div`
 
 export default class Column extends React.Component {
     render() {
-    // console.log('this.props: ', this.props)
-    const tasks = this.props.tasks
+
+        const tasks = this.props.tasks
         return (
             <Draggable draggableId={this.props.column.id} index={this.props.index}>
             {(provided, snapshot) => (

@@ -8,7 +8,6 @@ const Table = props => {
 
   let {allTasks, searchInput} = props; 
   let tableRows
-  console.log('allTasks: ', allTasks) // if allTasks is empty, render error component
 
   allTasks.length > 0 ?
   tableRows = allTasks.map((tableRow, i) => {

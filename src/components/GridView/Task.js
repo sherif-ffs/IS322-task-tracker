@@ -42,38 +42,30 @@ const Type = styled.h6`
 `
 export default class Task extends React.Component {
     render() {
-        // console.log('this.props: ', this.props)
+
         return (
             <Draggable draggableId={this.props.task.id} index={this.props.index}>
                 {(provided, snapshot) => (
                     <React.Fragment>
-                    <Container
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                        index={this.props.index}
-                        className="task-container"
-                        isDragging={snapshot.isDragging}
-                        onClick={(event) => this.props.onShowModal(event, this.props.task.id)}
-                    >
-                        <Title>{this.props.task.title}</Title>
-                        <Type style={
-                            {
-                                backgroundColor: `${this.props.task.type === "bug" ?'#DE3C4B' 
-                                : (this.props.task.type === 'task' ? "#F5BB00" : "#4FB286")}`,
+                        <Container
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            ref={provided.innerRef}
+                            index={this.props.index}
+                            className="task-container"
+                            isDragging={snapshot.isDragging}
+                            onClick={(event) => this.props.onShowModal(event, this.props.task.id)}
+                        >
+                            <Title>{this.props.task.title}</Title>
+                            <Type style={
+                                {
+                                    backgroundColor: `${this.props.task.type === "bug" ?'#DE3C4B' 
+                                    : (this.props.task.type === 'task' ? "#F5BB00" : "#4FB286")}`,
 
-                                color: `${this.props.task.type === 'task' ? '#333648' : '#fafafa'}`
-                            }
-                        }>{this.props.task.type}</Type>
-                    </Container>
-                    {/* <Modal
-                        currentTitle={this.props.task.title}
-                        index={this.props.task.id}
-                        onDeleteTask={this.props.onDeleteTask}
-                        onCloseModal={this.props.onCloseModal}
-                        currentType={this.props.task.type}
-                        saveModalDetails={this.props.saveModalDetails}
-                    ></Modal> */}
+                                    color: `${this.props.task.type === 'task' ? '#333648' : '#fafafa'}`
+                                }
+                            }>{this.props.task.type}</Type>
+                        </Container>
                     </React.Fragment>
                 )}
             </Draggable>

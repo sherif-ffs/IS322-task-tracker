@@ -4,17 +4,7 @@ import '../../styles/TableView/table.css'
 
 class TableRow extends React.Component{
 
-//   allTasks = props; 
-
   render() {
-    // console.log('props: ', this.props)
-    // console.log('allTasks: ', allTask)
-    // function renderAllTasks() {
-    //     const tableBody = document.querySelector('.table-body');
-    //     tableBody.innerHTML = '';
-
-    //     let tableRows = 
-    // }
     return (
         <tr key={this.props.key}>
             <td>{this.props.title}</td>

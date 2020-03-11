@@ -19,7 +19,6 @@ class FilterType extends React.Component {
     onTypeChange = this.props.onChange;
 
     render() {
-    console.log('onTypeChange: ', this.onTypeChange)
         return (
             <FormControl className='filter-by-type-container filter'>
             <InputLabel id="demo-simple-select-label">Filter by type</InputLabel>

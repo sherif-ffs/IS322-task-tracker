@@ -13,18 +13,10 @@ const Container = styled.div`
   display: flex;
   margin-top: 5vh;
   flex-direction: row;
-//   border: 1px solid red;
-  // height: 100vw;
-  // width: min-content;
 `
 
 class GridView extends React.Component {
      state = this.props.state;
-//   onDragStart = () => {
-//     // document.body.style.color = 'black';
-//     // document.body.style.fontWeight = 'bold';
-//     // document.body.style.transition = `backgroundColor 0.2s ease`;
-//   }
 
 onEditModal = (index) => {
     this.setState({
@@ -38,10 +30,9 @@ onCloseModal = () => {
 
 onShowModal = (event, index) => {    
     document.querySelector('.modal-wrapper').style.display = "flex";
-    console.log('index: ', index)
     this.setState({
         ...this.state,
-        requiredItem: index
+        requiredItem: index,
     });
     this.index = index;
 }
@@ -50,17 +41,14 @@ saveModalDetails = (item) => {
     let tempTask = this.state.tasks;
     const requiredItem = this.index;
     let newTask;
-    console.log('item: ', item)
     tempTask.forEach(task => {
         if (task.id === requiredItem) {
-            console.log('task: ', task)
             newTask = task
             newTask.title = item.title ? item.title : task.title
             newTask.type = item.type ? item.type : task.type
         }
     })
-    // newTask.title = item.title
-    // newTask.type = item.type
+
     this.setState({ 
         ...this.state,
     });
@@ -153,14 +141,12 @@ onDragEnd = (result) => {
             [newFinish.id]: newFinish
         }
     }
-    console.log('newState dragEnd: ', newState)
     this.setState(newState);
     return
 }
 
 onDeleteTask = (index) => {
     let { tasks, columns } = this.state;
-    console.log('this.state onDeleteTask: ', this.state)
 
     const taskToDelete = tasks.find(element => element.id === index);
     const columnsArray = []
@@ -189,20 +175,16 @@ onDeleteTask = (index) => {
 
     if (newIndex > -1) {
         columnTaskListWeNeed.splice(newIndex, 1);
-        console.log('columnTaskListWeNeed: ', columnTaskListWeNeed)
     }
     if (taskIndex > -1) {
         tasks.splice(taskIndex, 1);
     }
-    //  columnTaskListWeNeed.pop(index)
-    //  columnOneTaskIds.push(task.id)
 
     const newColumn = {
         id: columnWeNeed[0],
         title: columnWeNeed[1],
         taskIds: columnTaskListWeNeed
     }
-    // console.log('newColumn: ', newColumn)
     const newState = {
         ...this.state,
         tasks: tasks,
@@ -212,7 +194,6 @@ onDeleteTask = (index) => {
         }
     }
 
-    // console.log('newState: ', newState)
 
     this.setState(newState);    
     this.onCloseModal()
@@ -280,9 +261,7 @@ onAddTask = (task) => {
 
                       {this.state.columnOrder.map((columnId, index) => {
                         const column = this.state.columns[columnId];
-                        // console.log('column: ', column)
                         const tasks = column.taskIds.map(taskId => taskList[taskId]);
-                        // console.log('tasks: ', tasks)                        
                       return <Column 
                                 key={column.id} 
                                 column={column} 
@@ -301,7 +280,7 @@ onAddTask = (task) => {
                         onDeleteTask={this.onDeleteTask}
                         onCloseModal={this.onCloseModal}
                         index={this.index}
-                        // currentType={this.task.type}
+                        tasks={this.state.tasks}
                         saveModalDetails={this.saveModalDetails}
                     ></Modal>
                   </Container>
