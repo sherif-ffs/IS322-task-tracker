@@ -59,7 +59,9 @@ const useStyles = makeStyles(() => ({
   table: {
     backgroundColor: 'whitesmoke',
     height: 'min-content',
-    marginTop: '2vh'  }
+    paddingBottom: '50vh',
+    marginTop: '2vh'  
+  }
 }));
 
 const FullWidthTabs = props => {

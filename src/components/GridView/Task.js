@@ -15,7 +15,10 @@ const Container = styled.div`
     flex-direction: column;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .4);
     background-color: ${props => props.isDragging ? '#7FC7A7' : 'white'};
-    // transform: ${props => props.isDragging ? 'rotate(5deg)' : 'rotate(0deg)'}
+    @media (max-width: 768px) {
+        margin-left: 0px;
+        width: 80%;
+    }
 `
 
 const Title = styled.h3`

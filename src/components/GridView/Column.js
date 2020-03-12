@@ -15,6 +15,10 @@ const Container = styled.div`
     display: flex;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .9);
     flex-direction: column;
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-left: 0%;
+    }
 `
 const Title = styled.h3`
     padding-top: 20px;
