@@ -13,12 +13,14 @@ const Container = styled.div`
   display: flex;
   margin-top: 5vh;
   flex-direction: row;
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     flex-direction: column;
-    border: 1px solid red;
-    width: 90vw;
     overflow-x: hidden;
   }
+  @media (max-width: 768px) {
+    margin: 2px;
+    width: 95vw;
+}
 `
 
 class GridView extends React.Component {

@@ -9,16 +9,19 @@ const Container = styled.div`
     border: 1px solid lightgrey;
     border-radius: 3px;
     width: 250px;
-    // z-index: 1!important;
     height: min-content;
     background-color: #ebecf0;
     display: flex;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .9);
     flex-direction: column;
-    @media (max-width: 768px) {
-        width: 100%;
-        margin-left: 0%;
+    @media (max-width: 600px) {
+        margin-left: 3%!important;
+        width: 80%!important;
     }
+    @media (max-width: 768px) {
+        width: 200px;
+        margin: 2px;
+      }
 `
 const Title = styled.h3`
     padding-top: 20px;

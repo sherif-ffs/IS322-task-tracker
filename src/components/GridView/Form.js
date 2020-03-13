@@ -25,6 +25,14 @@ const Container = styled.form`
     border: 1px solid lightgrey;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .9);
     border-radius: 3px;
+    @media (max-width: 600px) {
+        margin-left: 3%!important;
+        width: 80%!important;
+    }
+    @media (max-width: 768px) {
+        width: 250px;
+        margin: 2px;
+    }
 `
 
 const Title = styled.h3`

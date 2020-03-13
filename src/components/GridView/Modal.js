@@ -45,11 +45,12 @@ const Container = styled.div`
     border: 1px solid lightgrey;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .9);
     transform: translate(-50%,-50%);
-    @media (max-width: 768px) {
-        width: 50%;
-        top: 10%;
-        left: 45%;
+    @media (max-width: 600px) {
+        width: 80%;
+        top: 15%;
+        left: 50%;
         margin-left: -5%;
+        height: 300px;
     }
 `
 const ButtonsWrapper = styled.div`
