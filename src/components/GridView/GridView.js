@@ -11,7 +11,9 @@ import Modal from './Modal'
 
 const Container = styled.div`
   display: flex;
-  margin-top: 5vh;
+  margin-top: 7vh;
+  width: 95vw;
+  margin-left: 2%;
   flex-direction: row;
   @media (max-width: 600px) {
     flex-direction: column;
@@ -24,12 +26,12 @@ const Container = styled.div`
 `
 
 class GridView extends React.Component {
-    //  state = this.props.state;
+     state = this.props.state;
 
-     state = {
-         ...this.props.state,
-         duplicateTaskExists: false
-     }
+    //  state = {
+    //      ...this.props.state,
+    //      duplicateTaskExists: false
+    //  }
 
 onEditModal = (index) => {
     this.setState({
@@ -54,8 +56,11 @@ saveModalDetails = (item) => {
     let tempTask = this.state.tasks;
     const requiredItem = this.index;
     let newTask;
-
-    const duplicateTask = tempTask.find(element => element.title.toLowerCase() === item.title.toLowerCase());
+    let duplicateTask
+    console.log('item: ', item)
+    if (item.title !== undefined) {
+        duplicateTask = tempTask.find(element => element.title.toLowerCase() === item.title.toLowerCase());
+    }
     console.log('duplicateTask: ', duplicateTask)
     if (!duplicateTask) {
         tempTask.forEach(task => {
@@ -221,16 +226,6 @@ onDeleteTask = (index) => {
     this.onCloseModal()
 
 }
-
-// checkDuplicateTasks = (task, tasks) => {
-//     let taskAlreadyExists = false;
-//     tasks.forEach(existingTask => {
-//         if (task.title === existingTask.title) {
-//             taskAlreadyExists = true;
-//         }
-//     })
-//     return taskAlreadyExists
-// }
 
 onAddTask = (task) => {
     let { tasks } = this.state;

@@ -11,7 +11,7 @@ const Container = styled.div`
     margin-right: 5px;
     border-radius: 5px;
     display: flex;
-    z-index: 1!important;
+    z-index: 2!important;
     flex-direction: column;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .4);
     background-color: ${props => props.isDragging ? '#7FC7A7' : 'white'};
@@ -26,7 +26,6 @@ const Title = styled.h3`
     font-family: 'Lato', Georgia, 'Times New Roman', Times, serif;
     font-weight: 300;
     opacity: .8;
-    // color: #333648;
 `
 const Type = styled.h6`
     font-size: .7rem;

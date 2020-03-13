@@ -15,7 +15,7 @@ import '../../styles/GridView/formButton.css'
 const Container = styled.form`
     height: min-content;
     margin-top: 1vh;
-    width: 250px;
+    width: 18%;
     margin: 8px;
     background-color: #ebecf0;
     display: flex;

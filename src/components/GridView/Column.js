@@ -8,7 +8,7 @@ const Container = styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
     border-radius: 3px;
-    width: 250px;
+    width: 18%;
     height: min-content;
     background-color: #ebecf0;
     display: flex;
@@ -22,6 +22,10 @@ const Container = styled.div`
         width: 200px;
         margin: 2px;
       }
+    //   @media (min-width: 1366px) {
+    //       width: 300px;
+    //       margin: 10px;
+    //   }
 `
 const Title = styled.h3`
     padding-top: 20px;
