@@ -24,7 +24,12 @@ const Container = styled.div`
 `
 
 class GridView extends React.Component {
-     state = this.props.state;
+    //  state = this.props.state;
+
+     state = {
+         ...this.props.state,
+         duplicateTaskExists: false
+     }
 
 onEditModal = (index) => {
     this.setState({
@@ -49,23 +54,28 @@ saveModalDetails = (item) => {
     let tempTask = this.state.tasks;
     const requiredItem = this.index;
     let newTask;
-    console.log('item: ', item)
-    console.log('newTask: ', newTask)
-    tempTask.forEach(task => {
-        if (task.id === requiredItem) {
-            newTask = task
-            newTask.title = item.title ? item.title : task.title
-            newTask.type = item.type ? item.type : task.type
-        }
-    })
 
-    if (this.checkDuplicateTasks(item, tempTask) === true) {
+    const duplicateTask = tempTask.find(element => element.title.toLowerCase() === item.title.toLowerCase());
+    console.log('duplicateTask: ', duplicateTask)
+    if (!duplicateTask) {
+        tempTask.forEach(task => {
+            if (task.id === requiredItem) {
+                newTask = task
+                newTask.title = item.title ? item.title : task.title
+                newTask.type = item.type ? item.type : task.type
+            }
+        })
+        this.setState({ 
+            ...this.state,
+        });
+        this.onCloseModal()    
+    } else {
         alert('A Task with that name already exists...')
-        this.onCloseModal()        
+        this.onCloseModal()    
     }
-    this.setState({ 
-        ...this.state,
-    });
+
+        
+
   }
 
 onDragUpdate = update => {
@@ -212,24 +222,25 @@ onDeleteTask = (index) => {
 
 }
 
-checkDuplicateTasks = (task, tasks) => {
-    let taskAlreadyExists = false;
-    tasks.forEach(existingTask => {
-        if (task.title === existingTask.title) {
-            taskAlreadyExists = true;
-        }
-    })
-    return taskAlreadyExists
-}
+// checkDuplicateTasks = (task, tasks) => {
+//     let taskAlreadyExists = false;
+//     tasks.forEach(existingTask => {
+//         if (task.title === existingTask.title) {
+//             taskAlreadyExists = true;
+//         }
+//     })
+//     return taskAlreadyExists
+// }
 
 onAddTask = (task) => {
     let { tasks } = this.state;
 
     task.id = `task-${this.state.tasks.length + 1}`
     let columnOneTaskIds = this.state.columns['column-1'].taskIds; 
+    const duplicateTask = tasks.find(element => element.title.toLowerCase() === task.title.toLowerCase());
 
     // check if task.title is an empty string & if there are no duplicate tasks
-    if (task.title.length > 0 && this.checkDuplicateTasks(task, tasks) === false) {
+    if (task.title.length > 0 && !duplicateTask) {
         tasks.push(task);
         columnOneTaskIds.push(task.id)
         document.querySelector('.form-input').style.border = '0px solid red';
@@ -260,7 +271,7 @@ onAddTask = (task) => {
   }
 
   render () {
-
+    console.log('this.state: ', this.state)
     const arrayToObject = (array) =>
     array.reduce((obj, item) => {
         obj[item.id] = item
