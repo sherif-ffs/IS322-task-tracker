@@ -49,6 +49,8 @@ saveModalDetails = (item) => {
     let tempTask = this.state.tasks;
     const requiredItem = this.index;
     let newTask;
+    console.log('item: ', item)
+    console.log('newTask: ', newTask)
     tempTask.forEach(task => {
         if (task.id === requiredItem) {
             newTask = task
@@ -57,11 +59,13 @@ saveModalDetails = (item) => {
         }
     })
 
+    if (this.checkDuplicateTasks(item, tempTask) === true) {
+        alert('A Task with that name already exists...')
+        this.onCloseModal()        
+    }
     this.setState({ 
         ...this.state,
     });
-
-    this.onCloseModal()
   }
 
 onDragUpdate = update => {
@@ -208,20 +212,31 @@ onDeleteTask = (index) => {
 
 }
 
+checkDuplicateTasks = (task, tasks) => {
+    let taskAlreadyExists = false;
+    tasks.forEach(existingTask => {
+        if (task.title === existingTask.title) {
+            taskAlreadyExists = true;
+        }
+    })
+    return taskAlreadyExists
+}
+
 onAddTask = (task) => {
     let { tasks } = this.state;
 
     task.id = `task-${this.state.tasks.length + 1}`
     let columnOneTaskIds = this.state.columns['column-1'].taskIds; 
 
-    // check if task.title is an empty string
-    if (task.title.length > 0) {
+    // check if task.title is an empty string & if there are no duplicate tasks
+    if (task.title.length > 0 && this.checkDuplicateTasks(task, tasks) === false) {
         tasks.push(task);
         columnOneTaskIds.push(task.id)
         document.querySelector('.form-input').style.border = '0px solid red';
         document.querySelector('.form-input').placeholder= 'Enter a title for this card...';
         document.querySelector('.form-input').classList.remove('error-placeholder')
     } else{ 
+        alert('A Task with that name already exists...')
         document.querySelector('.form-input').style.border = '2px solid #DE3C4B';
         document.querySelector('.form-input').placeholder= 'Please enter a title...';
         document.querySelector('.form-input').classList.add('error-placeholder')
