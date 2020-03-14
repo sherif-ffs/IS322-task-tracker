@@ -1,6 +1,6 @@
-[
-    {"requiredItem": 0},
-    {"tasks": [
+{
+    "requiredItem": 0,
+    "tasks": [
         {"id": "task-1", "title": "Create List View", "status": "todo", "type": "bug"},
         {"id": "task-2", "title": "Create Add Form", "status": "todo", "type": "bug"},
         {"id": "task-3", "title": "Install Dependencies", "status": "todo", "type": "feature"},
@@ -11,8 +11,8 @@
         {"id": "task-8", "title": "Install React", "status": "review", "type": "task"},
         {"id": "task-9", "title": "Invite Collaborators", "status": "done", "type": "feature"},
         {"id": "task-10", "title": "App Crashes", "status": "done", "type": "task"}
-    ]},
-    {"columns": {
+    ],
+    "columns": {
         "column-1": {
             "id": "column-1",
             "title": "to-do",
@@ -33,7 +33,6 @@
             "title": "done",
             "taskIds": ["task-9", "task-10"]
         }
-    }},
-    {"columnOrder": ["column-1", "column-2", "column-3", "column-4"]}
-
-]
+    },
+    "columnOrder": ["column-1", "column-2", "column-3", "column-4"]
+}
