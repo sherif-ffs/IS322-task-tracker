@@ -3,6 +3,7 @@ import React from 'react';
 import '../../styles/TableView/tableView.css'
 import Filters from './Filters'
 import Table from './Table'
+import Footer from '../shared/Footer'
 
 class TableView extends React.Component {
 
@@ -86,6 +87,7 @@ class TableView extends React.Component {
           onTypeChange={this.onTypeChange.bind(this)}
         ></Filters>
         <Table allTasks={filteredItems} searchInput={this.state.searchInput}></Table>
+        <Footer></Footer>
       </section>
     )
   }

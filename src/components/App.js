@@ -1,4 +1,5 @@
 import React from 'react';
+
 import axios from 'axios'
 import Tabs from './shared/Tabs'
 import '../styles/app.css'
@@ -26,7 +27,9 @@ class App extends React.Component {
   render() {
 
     return (
-      <Tabs tasks={this.state.tasks} state={this.state} ></Tabs>
+      <React.Fragment>
+        <Tabs tasks={this.state.tasks} state={this.state} ></Tabs>
+      </React.Fragment>
     );
   }
 }

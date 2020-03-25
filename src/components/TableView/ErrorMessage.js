@@ -19,9 +19,6 @@ const Message = styled.h1`
     text-align: center;
 `
 
-const searchInputWrapper = styled.span`
-    border: 1px solid red
-`
 const ErrorMessage = (props) => {
   const text = `Your search "${props.searchInput}" is not the name of a task`
   return (

@@ -4,10 +4,10 @@ import '../../styles/GridView/gridView.css'
 import '@atlaskit/css-reset'
 import {DragDropContext, Droppable} from 'react-beautiful-dnd'
 import styled from 'styled-components'
-import initialData from '../../initialData'
 import Column from './Column'
 import Form from '../GridView/Form'
 import Modal from './Modal'
+import Footer from '../shared/Footer'
 
 const Container = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ const Container = styled.div`
 
 class GridView extends React.Component {
      state = this.props.state;
-
+     
     //  state = {
     //      ...this.props.state,
     //      duplicateTaskExists: false
@@ -76,7 +76,7 @@ saveModalDetails = (item) => {
         this.onCloseModal()    
     } else {
         alert('A Task with that name already exists...')
-        this.onCloseModal()    
+        // this.onCloseModal()    
     }
 
         
@@ -221,10 +221,8 @@ onDeleteTask = (index) => {
         }
     }
 
-
     this.setState(newState);    
     this.onCloseModal()
-
 }
 
 onAddTask = (task) => {
@@ -259,7 +257,7 @@ onAddTask = (task) => {
       tasks: tasks,
       columns: {
           ...this.state.columns,
-          ['column-1']: newColumn,
+          newColumn,
       }
   }
     this.setState(newState);    
@@ -311,12 +309,13 @@ onAddTask = (task) => {
                         index={this.index}
                         tasks={this.state.tasks}
                         saveModalDetails={this.saveModalDetails}
-                    ></Modal>
+                  ></Modal>
                   </Container>
               )
               }
           </Droppable>
         </DragDropContext>
+        <Footer></Footer>
         </React.Fragment>
     )
       

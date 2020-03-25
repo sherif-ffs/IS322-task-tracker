@@ -2,7 +2,6 @@ import React from 'react';
 
 import styled from 'styled-components';
 import {Draggable} from 'react-beautiful-dnd';
-import Modal from './Modal'
 
 const Container = styled.div`
     padding: 15px;
