@@ -5,17 +5,17 @@ A simple Trello clone in React
 
 ## Features
 Trello features
-⋅⋅* Single board
-⋅⋅* Re-orderable lists and tasks
+* Single board
+* Re-orderable lists and tasks
 
 Task functionality
-⋅⋅* Title, description, and type
-⋅⋅* Colors to indicate types
-⋅⋅* Editable tasks
+* Title, description, and type
+* Colors to indicate types
+* Editable tasks
 
 ## Tools Used
-⋅⋅* React
-⋅⋅* Material-ui
-⋅⋅* React-Beautiful-dnd
-⋅⋅* Styled components
+* React
+* Material-ui
+* React-Beautiful-dnd
+* Styled components
 
